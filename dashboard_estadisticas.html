@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Tech - Estadísticas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/estadisticas.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header con búsqueda -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Logo Support Tech -->
+            <div class="navbar-brand d-flex align-items-center">
+                <div class="logo-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <span class="logo-text ms-2">SUPPORT TECH</span>
+            </div>
+            
+            <!-- Barra de búsqueda -->
+            <form class="d-flex flex-grow-1 mx-4">
+                <div class="search-container">
+                    <input class="form-control search-input" type="search" placeholder="Search for..." aria-label="Search">
+                    <button class="btn search-btn" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Usuario -->
+            <div class="dropdown">
+                <button class="btn user-info dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="me-3">Administrator</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user-edit me-2"></i>Editar Perfil</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Ajustes</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 sidebar">
+                <div class="sidebar-content">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard_ordenes.html" data-section="ordenes">
+                                <i class="fas fa-list-alt me-2"></i>
+                                ORDENES
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard_inventario.html" data-section="inventario">
+                                <i class="fas fa-boxes me-2"></i>
+                                INVENTARIO
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard_clientes.html" data-section="clientes">
+                                <i class="fas fa-users me-2"></i>
+                                CLIENTES
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard_servicios.html" data-section="servicios">
+                                <i class="fas fa-tools me-2"></i>
+                                SERVICIOS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="dashboard_estadisticas.html" data-section="estadistica">
+                                <i class="fas fa-chart-bar me-2"></i>
+                                ESTADISTICA
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Botón inferior del sidebar -->
+                    <div class="sidebar-footer">
+                        <button class="btn btn-sidebar-action">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+                <!-- Header de sección -->
+                <div class="section-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1>GRÁFICOS ESTADÍSTICOS</h1>
+                        <button class="btn btn-add" onclick="refreshCharts()">
+                            <i class="fas fa-sync-alt me-2"></i>ACTUALIZAR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contenedor centralizado para las secciones -->
+                <div class="section-container">
+                    <div class="stats-grid">
+                        <!-- Gráfico 1: Órdenes por Estado (Circular) -->
+                        <div class="chart-card">
+                            <h5><i class="fas fa-circle-notch me-2"></i>Órdenes por Estado</h5>
+                            <canvas id="orderStatusChart"></canvas>
+                        </div>
+
+                        <!-- Gráfico 2: Ventas Mensuales (Barras) -->
+                        <div class="chart-card">
+                            <h5><i class="fas fa-chart-bar me-2"></i>Ventas Mensuales</h5>
+                            <canvas id="monthlySalesChart"></canvas>
+                        </div>
+
+                        <!-- Gráfico 3: Tendencia de Servicios (Línea) -->
+                        <div class="chart-card">
+                            <h5><i class="fas fa-chart-line me-2"></i>Tendencia de Servicios</h5>
+                            <canvas id="serviceTrendChart"></canvas>
+                        </div>
+
+                        <!-- Gráfico 4: Distribución de Clientes (Donut) -->
+                        <div class="chart-card">
+                            <h5><i class="fas fa-users me-2"></i>Distribución de Clientes</h5>
+                            <canvas id="customerDistChart"></canvas>
+                        </div>
+
+                        <!-- Gráfico 5: Inventario por Categoría (Barras Horizontales) -->
+                        <div class="chart-card">
+                            <h5><i class="fas fa-boxes me-2"></i>Inventario por Categoría</h5>
+                            <canvas id="inventoryChart"></canvas>
+                        </div>
+
+                        <!-- Gráfico 6: Rendimiento Técnicos (Radar) -->
+                        <div class="chart-card">
+                            <h5><i class="fas fa-star me-2"></i>Rendimiento de Técnicos</h5>
+                            <canvas id="technicianPerformanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/estadisticas.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado del Ticket</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/detalles_ticket.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="logo-box">
+                    LOGO
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="index.html">INICIO</a>
+                    <a class="nav-link" href="servicios.html">SERVICIOS</a>
+                    <a class="nav-link active" href="login.html">ACCEDER</a>
+                    <a class="nav-link" href="suscribirse.html">SUSCRIBIRSE</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-container">
+        <div class="browser-mockup fade-in">
+            <!-- Cabecera del navegador simulado -->
+            <div class="browser-header">
+                <div class="browser-dots">
+                    <div class="browser-dot dot-red"></div>
+                    <div class="browser-dot dot-yellow"></div>
+                    <div class="browser-dot dot-green"></div>
+                </div>
+            </div>
+
+            <!-- Contenido del ticket -->
+            <div class="ticket-card">
+                <div class="ticket-content">
+                    <div class="ticket-number"># DE TICKET:</div>
+                    <div class="ticket-status">Estado Actual</div>
+                    <div class="status-progress"></div>
+                    
+                    <div class="ticket-details">
+                        <div class="details-label">Detalles del pedido</div>
+                        <div class="mt-3 text-muted">
+                            <i class="fas fa-info-circle me-2"></i>
+                            La información del pedido aparecerá aquí una vez que sea procesada.
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-date">
+                        <i class="fas fa-calendar-alt me-2"></i>
+                        Fecha de entrega estimada:
+                    </div>
+                    
+                    <div class="text-center">
+                        <button class="btn support-btn floating-animation">
+                            <i class="fas fa-comments me-2"></i>
+                            Hablar con soporte
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información adicional -->
+        <div class="row fade-in">
+            <div class="col-md-4 mb-3">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-clock fa-2x text-primary mb-3"></i>
+                        <h6 class="card-title">Seguimiento 24/7</h6>
+                        <p class="card-text text-muted small">Monitorea tu pedido en tiempo real</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-headset fa-2x text-success mb-3"></i>
+                        <h6 class="card-title">Soporte Inmediato</h6>
+                        <p class="card-text text-muted small">Conecta con nuestro equipo al instante</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt fa-2x text-info mb-3"></i>
+                        <h6 class="card-title">Seguridad Total</h6>
+                        <p class="card-text text-muted small">Tus datos están completamente protegidos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/detalles_ticket.js"></script>
+</body>
+</html>

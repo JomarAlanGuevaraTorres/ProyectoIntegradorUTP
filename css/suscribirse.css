@@ -1,0 +1,366 @@
+:root {
+    --primary-blue: #4A90E2;
+    --secondary-blue: #357ABD;
+    --light-blue: #7BB3F0;
+    --cyan: #5DADE2;
+    --teal: #48C9B0;
+    --gradient-blue: linear-gradient(135deg, #4A90E2, #357ABD);
+    --gradient-cyan: linear-gradient(135deg, #48C9B0, #5DADE2);
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-primary-custom {
+    background: var(--gradient-cyan);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(72, 201, 176, 0.3);
+}
+
+.btn-primary-custom:hover {
+    background: var(--gradient-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    color: white;
+}
+
+/* Navegación personalizada */
+.navbar-custom {
+    background: var(--gradient-blue);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+}
+
+.navbar-brand .logo-box {
+    background: white;
+    color: var(--primary-blue);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.navbar-brand:hover .logo-box {
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin: 0 5px;
+    padding: 8px 16px !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255,255,255,0.2) !important;
+    transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.active {
+    background-color: rgba(255,255,255,0.25) !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.main-container {
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.ticket-form-container {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 50px 40px;
+    margin: 50px auto;
+    max-width: 600px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ticket-form-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.form-control:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 0.25rem rgba(93, 173, 226, 0.25);
+}
+
+.ticket-form-container::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    background: white;
+    border-left: 2px solid #e9ecef;
+    border-right: 2px solid #e9ecef;
+    border-bottom: 2px solid #e9ecef;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.form-title {
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+}
+
+.form-label {
+    color: var(--secondary-blue);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.ticket-input {
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.ticket-input:hover {
+    border-color: var(--light-blue);
+}
+
+.ticket-input:focus {
+    background-color: white;
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(93, 173, 226, 0.15);
+}
+
+/* Campo de contraseña con toggle */
+.password-input-container {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--secondary-blue);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: var(--primary-blue);
+}
+
+/* Indicador de fuerza de contraseña */
+.password-strength {
+    margin-top: 8px;
+}
+
+.password-strength-bar {
+    height: 4px;
+    background-color: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.password-strength-fill {
+    height: 100%;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.password-strength-weak { background-color: var(--danger-color); width: 25%; }
+.password-strength-fair { background-color: var(--warning-color); width: 50%; }
+.password-strength-good { background-color: var(--success-color); width: 75%; }
+.password-strength-strong { background-color: var(--teal); width: 100%; }
+
+.password-strength-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.password-strength-text.weak { color: var(--danger-color); }
+.password-strength-text.fair { color: var(--warning-color); }
+.password-strength-text.good { color: var(--success-color); }
+.password-strength-text.strong { color: var(--teal); }
+
+.consult-btn {
+    background: var(--gradient-cyan);
+    border: none;
+    color: white;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(72, 201, 176, 0.3);
+}
+
+.consult-btn:hover {
+    background: var(--gradient-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    color: white;
+}
+
+.consult-btn:active {
+    transform: translateY(0);
+}
+
+.consult-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Enlaces personalizados */
+.terms-link,
+.login-link {
+    color: var(--primary-blue);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.terms-link:hover,
+.login-link:hover {
+    color: var(--secondary-blue);
+}
+
+/* Checkbox personalizado */
+.form-check-input:checked {
+    background-color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.form-check-input:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 0.25rem rgba(93, 173, 226, 0.25);
+}
+
+.form-check-label {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+/* Estados de validación */
+.is-invalid {
+    border-color: var(--danger-color) !important;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.is-valid {
+    border-color: var(--success-color) !important;
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25) !important;
+}
+
+.invalid-feedback {
+    display: none;
+    font-size: 0.875rem;
+    color: var(--danger-color);
+    margin-top: 5px;
+}
+
+.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+/* Efectos adicionales */
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ticket-form-container {
+        margin: 20px;
+        padding: 30px 25px;
+        max-width: 100%;
+    }
+    
+    .form-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+    }
+
+    .ticket-input {
+        font-size: 1rem;
+        padding: 12px 16px;
+    }
+
+    .password-toggle {
+        right: 12px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Animación de entrada */
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Partículas de fondo */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    background: var(--cyan);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: particleFloat 20s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% { transform: translateY(100vh) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
+}
