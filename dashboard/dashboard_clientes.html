@@ -6,7 +6,7 @@
     <title>Support Tech - Dashboard</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header con búsqueda -->
@@ -61,13 +61,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard_inventario.html" data-section="inventario">
+                            <a class="nav-link " href="dashboard_inventario.html" data-section="inventario">
                                 <i class="fas fa-boxes me-2"></i>
                                 INVENTARIO
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard_clientes.html" data-section="clientes">
+                            <a class="nav-link active" href="dashboard_clientes.html" data-section="clientes">
                                 <i class="fas fa-users me-2"></i>
                                 CLIENTES
                             </a>
@@ -99,7 +99,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
                 <!-- Header de sección -->
                 <div class="section-header">
-                    <h1>INVENTARIO</h1>
+                    <h1>CLIENTES</h1>
                 </div>
 
                 <!-- Contenedor centralizado para las secciones -->
@@ -108,9 +108,9 @@
                     <div class="card main-card" id="ordenesSection">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-title">INVENTARIO</h5>
+                                <h5 class="card-title">LISTA DE CLIENTES</h5>
                                 <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#orderModal">
-                                    <i class="fas fa-plus me-2"></i>Ingresar PRODUCTO
+                                    <i class="fas fa-plus me-2"></i>Registrar CLIENTE
                                 </button>
                             </div>
                         </div>
@@ -140,19 +140,19 @@
                                 <table class="table table-striped" id="ordersTable">
                                     <thead>
                                         <tr>
-                                            <th>ID <i class="fas fa-sort"></i></th>
-                                            <th>Componente <i class="fas fa-sort"></i></th>
-                                            <th>Cantidad <i class="fas fa-sort"></i></th>
-                                            <th>Estado  <i class="fas fa-sort"></i></th>
+                                            <th>Nombre<i class="fas fa-sort"></i></th>
+                                            <th>Dni<i class="fas fa-sort"></i></th>
+                                            <th>Email<i class="fas fa-sort"></i></th>
+                                            <th>Telefono <i class="fas fa-sort"></i></th>
                                             <th>Acciones <i class="fas fa-sort"></i></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>001</td>
-                                            <td>Teclado</td>
-                                            <td>4</td>
-                                            <td><span class="badge status-pending">Nuevo</span></td>
+                                            <td>Juan Perez</td>
+                                            <td>12345678</td>
+                                            <td>juan@gmail.com</td>
+                                            <td>987654321</td>
                                             <td>
                                                 <button class="btn btn-sm btn-edit me-1" title="Editar">
                                                     <i class="fas fa-edit"></i>
@@ -164,10 +164,25 @@
                                         </tr>
 
                                         <tr>
-                                            <td>002</td>
-                                            <td>Monitor</td>
-                                            <td>4</td>
-                                            <td><span class="badge status-pending">Nuevo</span></td>
+                                            <td>Juan Perez</td>
+                                            <td>12345678</td>
+                                            <td>juan@gmail.com</td>
+                                            <td>987654321</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-edit me-1" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-delete" title="Eliminar">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Juan Perez</td>
+                                            <td>12345678</td>
+                                            <td>juan@gmail.com</td>
+                                            <td>987654321</td>
                                             <td>
                                                 <button class="btn btn-sm btn-edit me-1" title="Editar">
                                                     <i class="fas fa-edit"></i>
@@ -219,24 +234,28 @@
                 <div class="modal-body">
                     <form id="orderForm">
                         <div class="mb-4">
-                            <label for="nombreCompleto" class="form-label">Producto:</label>
+                            <label for="nombreCompleto" class="form-label">Nombre del Cliente:</label>
                             <input type="text" class="form-control form-control-custom" id="nombreCompleto" required>
                         </div>
                         <div class="mb-4">
-                            <label for="username" class="form-label">Cantidad:</label>
+                            <label for="username" class="form-label">DNI:</label>
                             <input type="text" class="form-control form-control-custom" id="username" required>
                         </div>
-
                         <div class="mb-4">
-                            <label for="rol" class="form-label">Estado</label>
-                            <select class="form-select form-control-custom" id="rol" required>
-                                <option value="">Seleccionar Estado</option>
-                                <option value="admin">Nuevo</option>
-                                <option value="tecnico">Bueno</option>
-                                <option value="cliente">Regular</option>
-                                <option value="supervisor">Malo</option>
-                            </select>
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control form-control-custom" id="email" required>
                         </div>
+                        <div class="mb-4">
+                            <label for="telefono" class="form-label">Teléfono:</label>
+                            <input type="text" class="form-control form-control-custom" id="telefono" required>
+                        </div>
+                            <div class="mb-4">
+                                <label for="rol" class="form-label">Estado</label>
+                                <select class="form-select form-control-custom" id="rol" required>
+                                    <option value="">Seleccionar Estado</option>
+                                    <option value="admin">Activo</option>
+                                    <option value="tecnico">Inactivo</option>
+                                </select>
                         <div class="modal-buttons">
                             <button type="button" class="btn btn-secondary btn-modal-cancel" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary btn-modal-save">Guardar</button>
@@ -248,6 +267,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

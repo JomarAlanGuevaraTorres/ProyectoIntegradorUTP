@@ -6,7 +6,7 @@
     <title>Support Tech - Dashboard</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header con búsqueda -->
@@ -55,13 +55,13 @@
                 <div class="sidebar-content">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="dashboard_ordenes.html" data-section="ordenes">
+                            <a class="nav-link active" href="dashboard_ordenes.html" data-section="ordenes">
                                 <i class="fas fa-list-alt me-2"></i>
                                 ORDENES
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="dashboard_inventario.html" data-section="inventario">
+                            <a class="nav-link" href="dashboard_inventario.html" data-section="inventario">
                                 <i class="fas fa-boxes me-2"></i>
                                 INVENTARIO
                             </a>
@@ -73,7 +73,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard_servicios.html" data-section="servicios">
+                            <a class="nav-link" href="dashboard_servicios.html" data-section="servicios">
                                 <i class="fas fa-tools me-2"></i>
                                 SERVICIOS
                             </a>
@@ -99,7 +99,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
                 <!-- Header de sección -->
                 <div class="section-header">
-                    <h1>SERVICIOS</h1>
+                    <h1>RESUMEN DE ORDENES</h1>
                 </div>
 
                 <!-- Contenedor centralizado para las secciones -->
@@ -108,9 +108,9 @@
                     <div class="card main-card" id="ordenesSection">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-title">LISTA DE SERVICIOS</h5>
+                                <h5 class="card-title">RESUMEN DE ORDENES</h5>
                                 <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#orderModal">
-                                    <i class="fas fa-plus me-2"></i>Registrar SERVICIO
+                                    <i class="fas fa-plus me-2"></i>Ingresar Orden
                                 </button>
                             </div>
                         </div>
@@ -140,19 +140,19 @@
                                 <table class="table table-striped" id="ordersTable">
                                     <thead>
                                         <tr>
-                                            <th>Grupo<i class="fas fa-sort"></i></th>
-                                            <th>Nombre<i class="fas fa-sort"></i></th>
-                                            <th>Descripción<i class="fas fa-sort"></i></th>
-                                            <th>Precio <i class="fas fa-sort"></i></th>
+                                            <th>N° de Orden <i class="fas fa-sort"></i></th>
+                                            <th>Cliente <i class="fas fa-sort"></i></th>
+                                            <th>Resumen de pedido <i class="fas fa-sort"></i></th>
+                                            <th>Estado de pedido <i class="fas fa-sort"></i></th>
                                             <th>Acciones <i class="fas fa-sort"></i></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Desarrollo</td>
-                                            <td>Servicio 1</td>
-                                            <td>Descripción del servicio 1</td>
-                                            <td>$100</td>
+                                            <td>001</td>
+                                            <td>Mario Fernandez</td>
+                                            <td>Reparacion</td>
+                                            <td><span class="badge status-pending">Pendiente</span></td>
                                             <td>
                                                 <button class="btn btn-sm btn-edit me-1" title="Editar">
                                                     <i class="fas fa-edit"></i>
@@ -162,12 +162,11 @@
                                                 </button>
                                             </td>
                                         </tr>
-
                                         <tr>
-                                            <td>Hardware</td>
-                                            <td>Servicio 2</td>
-                                            <td>Descripción del servicio 2</td>
-                                            <td>$150</td>
+                                            <td>002</td>
+                                            <td>Senior Marketing Designer</td>
+                                            <td>Instalación</td>
+                                            <td><span class="badge status-completed">Pendiente</span></td>
                                             <td>
                                                 <button class="btn btn-sm btn-edit me-1" title="Editar">
                                                     <i class="fas fa-edit"></i>
@@ -177,12 +176,25 @@
                                                 </button>
                                             </td>
                                         </tr>
-
                                         <tr>
-                                            <td>Software</td>
-                                            <td>Servicio 3</td>
-                                            <td>Descripción del servicio 3</td>
-                                            <td>$200</td>
+                                            <td>003</td>
+                                            <td>Regional Director</td>
+                                            <td>Limpieza</td>
+                                            <td><span class="badge status-in-progress">Pendiente</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-edit me-1" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-delete" title="Eliminar">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>004</td>
+                                            <td>Pedro Torres</td>
+                                            <td>Mantenimiento</td>
+                                            <td><span class="badge status-completed">Pendiente</span></td>
                                             <td>
                                                 <button class="btn btn-sm btn-edit me-1" title="Editar">
                                                     <i class="fas fa-edit"></i>
@@ -234,28 +246,24 @@
                 <div class="modal-body">
                     <form id="orderForm">
                         <div class="mb-4">
-                            <label for="nombreCompleto" class="form-label">Grupo:</label>
+                            <label for="nombreCompleto" class="form-label">Cliente:</label>
                             <input type="text" class="form-control form-control-custom" id="nombreCompleto" required>
                         </div>
                         <div class="mb-4">
-                            <label for="username" class="form-label">Nombre del Servicio:</label>
+                            <label for="username" class="form-label">Resumen del pedido:</label>
                             <input type="text" class="form-control form-control-custom" id="username" required>
                         </div>
+
                         <div class="mb-4">
-                            <label for="email" class="form-label">Descripción:</label>
-                            <input type="email" class="form-control form-control-custom" id="email" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="telefono" class="form-label">Precio:</label>
-                            <input type="text" class="form-control form-control-custom" id="telefono" required>
-                        </div>
-                            <div class="mb-4">
-                            <label for="rol" class="form-label">Estado:</label>
+                            <label for="rol" class="form-label">Rol</label>
                             <select class="form-select form-control-custom" id="rol" required>
-                                <option value="">Seleccionar Estado</option>
-                                <option value="admin">Activo</option>
-                                <option value="tecnico">Inactivo</option>
-                                </select>
+                                <option value="">Seleccionar Rol</option>
+                                <option value="admin">Administrador</option>
+                                <option value="tecnico">Técnico</option>
+                                <option value="cliente">Cliente</option>
+                                <option value="supervisor">Supervisor</option>
+                            </select>
+                        </div>
                         <div class="modal-buttons">
                             <button type="button" class="btn btn-secondary btn-modal-cancel" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary btn-modal-save">Guardar</button>
@@ -267,6 +275,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

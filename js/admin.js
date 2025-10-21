@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 console.log('Redirecting to admin dashboard');
                 // Redirigir al panel de administración
-                window.location.href = 'dashboard-admin.html';
+                window.location.href = 'dashboard_ordenes.html';
             }, 1500);
         }, 2000);
     }

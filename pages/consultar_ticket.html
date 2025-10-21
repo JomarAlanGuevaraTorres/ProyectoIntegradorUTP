@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso - TechSolutions</title>
+    <title>Consultar Ticket - TechSolutions</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
     
     <!-- CSS personalizado -->
-    <link rel="stylesheet" href="css/acceder.css">
+    <link rel="stylesheet" href="css/consultar_ticket.css">
 </head>
 
 <body>
@@ -50,25 +50,38 @@
                 <div class="col-12">
                     <div class="ticket-form-container fade-in">
                         <h3 class="form-title text-center">
-                            <i class="bi bi-lock me-3"></i>
-                            Acceder
+                            <i class="bi bi-ticket-detailed me-3"></i>
+                            Consultar Ticket
                         </h3>
-                        <form id="accessForm">                            
-                            <div class="text-center">
-                                    <a href="admin.html" class="btn consult-btn floating-animation">
-                                        <i class="bi bi-person me-2"></i>
-                                        Acceder como administrador
-                                    </a>
-                            </div>
-                            <hr class="my-4">
-
+                        
+                        <form id="ticketForm">
                             <div class="mb-5">
-                                <div class="text-center">
-                                    <a href="consultar_ticket.html" class="btn consult-btn floating-animation">
-                                        <i class="bi bi-ticket me-2"></i>
-                                        Consultar ticket
-                                    </a>
+                                <label for="ticketInput" class="form-label">Número de Ticket</label>
+                                <input type="text" 
+                                       class="form-control form-control-lg ticket-input" 
+                                       id="ticketInput" 
+                                       placeholder="Ingresa el número de tu ticket (ej: TK-001234)"
+                                       required>
+                                <div class="form-text text-muted mt-2">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Puedes encontrar tu número de ticket en el email de confirmación
                                 </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button formaction="detalles_ticket.html" type="submit" class="btn consult-btn floating-animation">
+                                    <i class="bi bi-search me-2"></i>
+                                    Consultar Estado
+                                </button>
+                            </div>
+
+                            <div class="mt-4 text-center">
+                                <small class="text-muted">
+                                    ¿No tienes un ticket? 
+                                    <a href="crear-ticket.html" class="text-decoration-none create-ticket-link">
+                                        Crear nuevo ticket
+                                    </a>
+                                </small>
                             </div>
                         </form>
                     </div>
@@ -81,6 +94,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     
     <!-- JavaScript personalizado -->
-    <script src="js/acceder.js"></script>
+    <script src="../js/consultar_ticket.js"></script>
 </body>
 </html>

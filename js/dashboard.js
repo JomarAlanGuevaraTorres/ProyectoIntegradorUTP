@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (confirm('¿Estás seguro de que deseas cerrar sesión?')) {
                         showNotification('Cerrando sesión...', 'info');
                         setTimeout(() => {
-                            window.location.href = 'login.html';
+                            window.location.href = '../index.html';
                         }, 2000);
                     }
                 } else {
