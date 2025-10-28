@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - TechSolutions</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="../css/suscribirse.css">
+</head>
+
+<body>
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <div class="logo-box">
+                    LOGO
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="../index.html">INICIO</a>
+                    <a class="nav-link" href="servicios.html">SERVICIOS</a>
+                    <a class="nav-link" href="acceder.html">ACCEDER</a>
+                    <a class="nav-link active" href="suscribirse.html">REGISTRARSE</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="main-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="ticket-form-container fade-in">
+                        <h3 class="form-title text-center">
+                            <i class="bi bi-person-plus me-3"></i>
+                            Crear Cuenta
+                        </h3>
+                        
+                        <form id="registrationForm">
+                            <div class="mb-4">
+                                <label for="fullName" class="form-label">Nombre Completo</label>
+                                <input type="text" 
+                                       class="form-control form-control-lg ticket-input" 
+                                       id="fullName" 
+                                       placeholder="Ingresa tu nombre completo"
+                                       required>
+                                <div class="invalid-feedback">
+                                    Por favor ingresa tu nombre completo
+                                </div>
+                            </div>
+                        
+                            <div class="mb-4">
+                                <label for="clientEmail" class="form-label">Correo Electrónico</label>
+                                <input type="email" 
+                                       class="form-control form-control-lg ticket-input" 
+                                       id="clientEmail" 
+                                       placeholder="ejemplo@correo.com"
+                                       required>
+                                <div class="invalid-feedback">
+                                    Por favor ingresa un correo válido
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="clientPassword" class="form-label">Contraseña</label>
+                                <div class="password-input-container">
+                                    <input type="password" 
+                                           class="form-control form-control-lg ticket-input" 
+                                           id="clientPassword" 
+                                           placeholder="Mínimo 8 caracteres"
+                                           required>
+                                    <button type="button" class="password-toggle" id="togglePassword">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength mt-2">
+                                    <div class="password-strength-bar">
+                                        <div class="password-strength-fill" id="passwordStrengthFill"></div>
+                                    </div>
+                                    <small class="password-strength-text" id="passwordStrengthText">
+                                        Ingresa una contraseña
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                                <input type="password" 
+                                       class="form-control form-control-lg ticket-input" 
+                                       id="confirmPassword" 
+                                       placeholder="Repite tu contraseña"
+                                       required>
+                                <div class="invalid-feedback">
+                                    Las contraseñas no coinciden
+                                </div>
+                            </div>
+
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="acceptTerms" required>
+                                <label class="form-check-label" for="acceptTerms">
+                                    Acepto los <a href="#" class="terms-link">términos y condiciones</a> 
+                                    y la <a href="#" class="terms-link">política de privacidad</a>
+                                </label>
+                                <div class="invalid-feedback">
+                                    Debes aceptar los términos y condiciones
+                                </div>
+                            </div>
+
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="acceptNewsletter">
+                                <label class="form-check-label" for="acceptNewsletter">
+                                    Quiero recibir noticias y actualizaciones por correo
+                                </label>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn consult-btn floating-animation">
+                                    <i class="bi bi-person-check me-2"></i>
+                                    Crear Cuenta
+                                </button>
+                            </div>
+
+                            <div class="mt-4 text-center">
+                                <small class="text-muted">
+                                    ¿Ya tienes una cuenta? 
+                                    <a href="acceder.html" class="text-decoration-none login-link">
+                                        Inicia sesión aquí
+                                    </a>
+                                </small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript personalizado -->
+    <script src="js/suscribirse.js"></script>
+</body>
+</html>
