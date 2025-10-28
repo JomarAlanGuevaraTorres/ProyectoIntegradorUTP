@@ -517,4 +517,256 @@ function initUserDropdown() {
     });
 }
 
+// ==================== FUNCIONES API - INVENTARIO ====================
+
+async function cargarInventario() {
+    try {
+        showNotification('Cargando inventario...', 'info');
+        
+        const response = await fetch(`${API_BASE_URL}/inventario`);
+        
+        if (!response.ok) {
+            throw new Error('Error al cargar inventario');
+        }
+        
+        const inventario = await response.json();
+        mostrarInventarioEnTabla(inventario);
+        
+        showNotification('Inventario cargado exitosamente', 'success');
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al cargar inventario: ' + error.message, 'danger');
+    }
+}
+
+function mostrarInventarioEnTabla(inventario) {
+    const tbody = document.querySelector('#ordersTable tbody');
+    
+    if (!tbody) {
+        console.error('No se encontró la tabla');
+        return;
+    }
+    
+    tbody.innerHTML = '';
+    
+    if (inventario.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="5" class="text-center text-muted">
+                    <i class="fas fa-inbox fa-3x mb-3 d-block"></i>
+                    No hay items en el inventario
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    inventario.forEach(item => {
+        const estadoBadgeClass = {
+            'NUEVO': 'status-completed',
+            'BUENO': 'status-in-progress',
+            'REGULAR': 'status-pending',
+            'MALO': 'bg-danger text-white'
+        }[item.estado] || 'status-pending';
+        
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.id.toString().padStart(3, '0')}</td>
+            <td>${item.componente}</td>
+            <td>${item.cantidad}</td>
+            <td><span class="badge ${estadoBadgeClass}">${item.estado}</span></td>
+            <td>
+                <button class="btn btn-sm btn-edit me-1" title="Editar" 
+                        onclick="editarInventario(${item.id})">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-delete" title="Eliminar"
+                        onclick="eliminarInventario(${item.id}, '${item.componente}')">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+    
+    updatePaginationInfo();
+}
+
+async function guardarInventario(inventarioData) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/inventario`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(inventarioData)
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al guardar item');
+        }
+        
+        const item = await response.json();
+        showNotification('Item guardado exitosamente', 'success');
+        cargarInventario();
+        return item;
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error: ' + error.message, 'danger');
+        throw error;
+    }
+}
+
+async function eliminarInventario(id, componente) {
+    if (!confirm(`¿Estás seguro de que deseas eliminar "${componente}"?`)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/inventario/${id}`, {
+            method: 'DELETE'
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al eliminar item');
+        }
+        
+        showNotification('Item eliminado exitosamente', 'success');
+        cargarInventario();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al eliminar item: ' + error.message, 'danger');
+    }
+}
+
+async function editarInventario(id) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/inventario/${id}`);
+        if (!response.ok) throw new Error('Error al cargar item');
+        
+        const item = await response.json();
+        
+        // Llenar el formulario con los datos del item
+        document.getElementById('nombreCompleto').value = item.componente;
+        document.getElementById('username').value = item.cantidad;
+        document.getElementById('rol').value = item.estado;
+        
+        // Cambiar el título del modal
+        document.querySelector('.modal-title').textContent = 'Editar Producto';
+        
+        // Cambiar el comportamiento del formulario para actualizar
+        const form = document.getElementById('orderForm');
+        form.dataset.editing = id;
+        
+        // Abrir el modal
+        const modal = new bootstrap.Modal(document.getElementById('orderModal'));
+        modal.show();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al cargar datos del item', 'danger');
+    }
+}
+
+async function actualizarInventario(id, inventarioData) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/inventario/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(inventarioData)
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al actualizar item');
+        }
+        
+        showNotification('Item actualizado exitosamente', 'success');
+        cargarInventario();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al actualizar item: ' + error.message, 'danger');
+        throw error;
+    }
+}
+
+async function submitInventarioForm() {
+    const form = document.getElementById('orderForm');
+    const saveBtn = document.querySelector('.btn-modal-save');
+    const originalText = saveBtn.innerHTML;
+    
+    const inventarioData = {
+        componente: document.getElementById('nombreCompleto').value,
+        cantidad: parseInt(document.getElementById('username').value),
+        estado: document.getElementById('rol').value
+    };
+    
+    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Guardando...';
+    saveBtn.disabled = true;
+    
+    try {
+        if (form.dataset.editing) {
+            // Actualizar item existente
+            await actualizarInventario(form.dataset.editing, inventarioData);
+        } else {
+            // Crear nuevo item
+            await guardarInventario(inventarioData);
+        }
+        
+        saveBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Guardado!';
+        
+        setTimeout(() => {
+            const modalInstance = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
+            modalInstance.hide();
+            
+            form.reset();
+            delete form.dataset.editing;
+            document.querySelector('.modal-title').textContent = 'Nuevo Producto';
+            saveBtn.innerHTML = originalText;
+            saveBtn.disabled = false;
+        }, 1500);
+        
+    } catch (error) {
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
+    }
+}
+
+// ==================== ACTUALIZAR initModalFunctionality ====================
+// REEMPLAZA LA FUNCIÓN initModalFunctionality EXISTENTE CON ESTA:
+
+function initModalFunctionality() {
+    const orderForm = document.getElementById('orderForm');
+    const modal = document.getElementById('orderModal');
+    
+    if (!orderForm) return;
+    
+    orderForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const currentPage = window.location.pathname;
+        
+        if (currentPage.includes('dashboard_clientes.html')) {
+            await submitClienteForm();
+        } else if (currentPage.includes('dashboard_inventario.html')) {
+            await submitInventarioForm();
+        } else if (currentPage.includes('dashboard_ordenes.html')) {
+            // await submitOrdenForm();
+        }
+    });
+    
+    // Limpiar formulario al cerrar modal
+    if (modal) {
+        modal.addEventListener('hidden.bs.modal', function() {
+            orderForm.reset();
+            delete orderForm.dataset.editing;
+            orderForm.classList.remove('was-validated');
+            document.querySelector('.modal-title').textContent = 'Nuevo Producto';
+        });
+    }
+}
 console.log('Dashboard con API inicializado correctamente');
