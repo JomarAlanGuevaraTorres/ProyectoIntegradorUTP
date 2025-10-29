@@ -1,3 +1,6 @@
+// Configuración de la API
+const API_BASE_URL = 'http://localhost:8080/api';
+
 document.addEventListener('DOMContentLoaded', function() {
     // Crear partículas de fondo
     const particlesContainer = document.getElementById('particles');
@@ -12,17 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
         particlesContainer.appendChild(particle);
     }
 
-    // Navegación activa - solo para enlaces sin href real
+    // Navegación activa
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            // Solo prevenir default si el href es "#" (enlaces placeholder)
             if (this.getAttribute('href') === '#') {
                 e.preventDefault();
                 navLinks.forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             }
-            // Para enlaces reales (index.html, servicios.html, etc.) dejar que naveguen normalmente
         });
     });
 
@@ -40,19 +41,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validación del formato del ticket
         if (!isValidTicketFormat(ticketNumber)) {
-            showInputError('Formato de ticket inválido. Usa el formato: TK-123456');
+            showInputError('Formato de ticket inválido. Usa el formato: ORD-001');
             return;
         }
         
         // Proceso de búsqueda
-        searchTicket(ticketNumber, submitBtn);
+        searchTicketInDatabase(ticketNumber, submitBtn);
     });
 
     // Función para validar el formato del ticket
     function isValidTicketFormat(ticketNumber) {
-        // Formato esperado: TK-NNNNNN o similar
-        const ticketPattern = /^[A-Z]{2,3}-\d{4,8}$/i;
-        return ticketPattern.test(ticketNumber) || /^\d{4,8}$/.test(ticketNumber);
+        // Formato esperado: ORD-NNNNNN o TK-NNNNNN
+        const ticketPattern = /^[A-Z]{2,3}-\d{3,8}$/i;
+        return ticketPattern.test(ticketNumber) || /^\d{3,8}$/.test(ticketNumber);
     }
 
     // Función para mostrar error en input
@@ -64,55 +65,66 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             input.classList.remove('input-error');
-            input.placeholder = 'Ingresa el número de tu ticket (ej: TK-001234)';
+            input.placeholder = 'Ingresa el número de tu ticket (ej: ORD-001)';
         }, 3000);
     }
 
-    // Función principal de búsqueda de ticket
-    function searchTicket(ticketNumber, submitBtn) {
+    // ==================== BÚSQUEDA EN LA BASE DE DATOS ====================
+    async function searchTicketInDatabase(ticketNumber, submitBtn) {
         const originalText = submitBtn.innerHTML;
         
         // Animación de búsqueda
-        submitBtn.innerHTML = '<i class="bi bi-arrow-clockwise spin me-2"></i>Buscando ticket...';
+        submitBtn.innerHTML = '<i class="bi bi-arrow-clockwise spin me-2"></i>Buscando en base de datos...';
         submitBtn.disabled = true;
         
         // Agregar animación de spin
         addSpinAnimation();
         
-        setTimeout(() => {
-            // Simular búsqueda en base de datos
-            const ticketExists = simulateTicketSearch(ticketNumber);
+        try {
+            // Buscar el ticket/orden en la base de datos
+            const response = await fetch(`${API_BASE_URL}/ordenes`);
             
-            if (ticketExists) {
-                showTicketFound(submitBtn, ticketNumber);
+            if (!response.ok) {
+                throw new Error('Error al conectar con el servidor');
+            }
+            
+            const ordenes = await response.json();
+            
+            // Buscar la orden por número
+            const ordenEncontrada = ordenes.find(orden => 
+                orden.numeroOrden.toUpperCase() === ticketNumber.toUpperCase()
+            );
+            
+            if (ordenEncontrada) {
+                showTicketFound(submitBtn, ordenEncontrada);
             } else {
                 showTicketNotFound(submitBtn, originalText, ticketNumber);
             }
-        }, 2000);
-    }
-
-    // Simulación de búsqueda de ticket en base de datos
-    function simulateTicketSearch(ticketNumber) {
-        // Tickets de ejemplo que "existen" en el sistema
-        const existingTickets = [
-            'TK-001234', 'TK-001235', 'TK-001236', 'TK-001237',
-            'SUP-001234', 'REP-001234', 'BUG-001234',
-            '001234', '001235', '001236', '001237'
-        ];
-        
-        return existingTickets.includes(ticketNumber.toUpperCase()) || 
-               existingTickets.includes(ticketNumber);
+            
+        } catch (error) {
+            console.error('Error:', error);
+            submitBtn.innerHTML = '<i class="bi bi-exclamation-triangle me-2"></i>Error de conexión';
+            submitBtn.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = 'var(--gradient-cyan)';
+                submitBtn.disabled = false;
+                
+                showErrorAlert('No se pudo conectar con el servidor. Verifica que el backend esté activo.');
+            }, 2000);
+        }
     }
 
     // Función para ticket encontrado
-    function showTicketFound(submitBtn, ticketNumber) {
+    function showTicketFound(submitBtn, orden) {
         submitBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>¡Ticket encontrado!';
         submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
         
         setTimeout(() => {
-            console.log('Redirecting to ticket details for:', ticketNumber);
-            // Redirigir a página de detalles del ticket
-            window.location.href = `ticket-detalle.html?ticket=${encodeURIComponent(ticketNumber)}`;
+            console.log('Redirigiendo a detalles del ticket:', orden);
+            // Redirigir a página de detalles pasando el ID de la orden
+            window.location.href = `../ticket/detalles_ticket.html?id=${orden.id}`;
         }, 1500);
     }
 
@@ -141,11 +153,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const suggestion = `
             <div class="alert alert-info mt-3 fade show" role="alert">
                 <i class="bi bi-info-circle me-2"></i>
-                <strong>Ticket "${ticketNumber}" no encontrado.</strong><br>
+                <strong>Ticket "${ticketNumber}" no encontrado en la base de datos.</strong><br>
                 <small>
                     • Verifica que el número sea correcto<br>
-                    • Asegúrate de incluir el prefijo (ej: TK-001234)<br>
-                    • <a href="crear-ticket.html" class="alert-link">¿Necesitas crear un nuevo ticket?</a>
+                    • Asegúrate de incluir el prefijo (ej: ORD-001)<br>
+                    • El ticket debe estar registrado en el sistema<br>
+                    • <a href="../dashboard/dashboard_ordenes.html" class="alert-link">Ver todas las órdenes</a>
                 </small>
             </div>
         `;
@@ -158,12 +171,39 @@ document.addEventListener('DOMContentLoaded', function() {
         
         form.insertAdjacentHTML('beforeend', suggestion);
         
-        // Auto-remover la alerta después de 8 segundos
+        // Auto-remover la alerta después de 10 segundos
         setTimeout(() => {
             const alert = form.querySelector('.alert');
             if (alert) {
                 alert.classList.remove('show');
                 setTimeout(() => alert.remove(), 300);
+            }
+        }, 10000);
+    }
+
+    // Función para mostrar error de conexión
+    function showErrorAlert(message) {
+        const alert = `
+            <div class="alert alert-danger mt-3 fade show" role="alert">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                <strong>Error de conexión</strong><br>
+                <small>${message}</small>
+            </div>
+        `;
+        
+        const form = document.getElementById('ticketForm');
+        const existingAlert = form.querySelector('.alert');
+        if (existingAlert) {
+            existingAlert.remove();
+        }
+        
+        form.insertAdjacentHTML('beforeend', alert);
+        
+        setTimeout(() => {
+            const alertElement = form.querySelector('.alert');
+            if (alertElement) {
+                alertElement.classList.remove('show');
+                setTimeout(() => alertElement.remove(), 300);
             }
         }, 8000);
     }
@@ -207,9 +247,9 @@ document.addEventListener('DOMContentLoaded', function() {
     ticketInput.addEventListener('input', function() {
         let value = this.value.toUpperCase();
         
-        // Si es solo números y tiene más de 3 dígitos, agregar prefijo TK-
-        if (/^\d{4,}$/.test(value)) {
-            value = 'TK-' + value;
+        // Si es solo números y tiene más de 3 dígitos, agregar prefijo ORD-
+        if (/^\d{3,}$/.test(value)) {
+            value = 'ORD-' + value;
         }
         
         this.value = value;
@@ -225,13 +265,6 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.background = 'white';
     });
 
-    // Tecla Enter para enviar formulario
-    document.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' && document.activeElement.closest('#ticketForm')) {
-            document.getElementById('ticketForm').dispatchEvent(new Event('submit'));
-        }
-    });
-
     // Limpiar alertas al escribir
     ticketInput.addEventListener('input', function() {
         const existingAlert = document.querySelector('.alert');
@@ -241,3 +274,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+console.log('✅ Sistema de consulta de tickets con BD inicializado');
