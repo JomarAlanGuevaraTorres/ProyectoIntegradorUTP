@@ -124,7 +124,19 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             console.log('Redirigiendo a detalles del ticket:', orden);
             // Redirigir a página de detalles pasando el ID de la orden
-            window.location.href = `../ticket/detalles_ticket.html?id=${orden.id}`;
+            // La ruta depende de dónde esté consultar_ticket.html
+            const currentPath = window.location.pathname;
+            let targetPath = '';
+            
+            if (currentPath.includes('/pages/')) {
+                // Si estamos en pages/consultar_ticket.html
+                targetPath = '../ticket/detalles_ticket.html?id=' + orden.id;
+            } else {
+                // Si estamos en otro lugar
+                targetPath = '/ticket/detalles_ticket.html?id=' + orden.id;
+            }
+            
+            window.location.href = targetPath;
         }, 1500);
     }
 

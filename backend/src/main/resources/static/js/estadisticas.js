@@ -1,7 +1,9 @@
-// estadisticas.js - Script para gráficos estadísticos
+// estadisticas.js - Script para gráficos estadísticos con datos reales
+
+const API_BASE_URL = 'http://localhost:8080/api';
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar todos los gráficos
+    // Inicializar gráficos con datos reales
     initCharts();
     initAnimations();
 });
@@ -24,239 +26,330 @@ const chartColors = {
 };
 
 // Inicializar todos los gráficos
-function initCharts() {
-    createOrderStatusChart();
-    createMonthlySalesChart();
-    createServiceTrendChart();
-    createCustomerDistChart();
-    createInventoryChart();
-    createTechnicianPerformanceChart();
+async function initCharts() {
+    try {
+        console.log('🔄 Cargando estadísticas desde la base de datos...');
+        
+        await Promise.all([
+            createOrderStatusChart(),
+            createMonthlySalesChart(),
+            createServiceTrendChart(),
+            createCustomerDistChart(),
+            createInventoryChart(),
+            createTechnicianPerformanceChart()
+        ]);
+        
+        console.log('✅ Todos los gráficos cargados exitosamente');
+    } catch (error) {
+        console.error('❌ Error al cargar gráficos:', error);
+        showNotification('Error al cargar estadísticas: ' + error.message, 'danger');
+    }
 }
 
-// 1. Gráfico Circular - Órdenes por Estado
-function createOrderStatusChart() {
-    const ctx = document.getElementById('orderStatusChart').getContext('2d');
-    orderStatusChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Pendiente', 'En Progreso', 'Completado', 'Cancelado'],
-            datasets: [{
-                data: [25, 35, 30, 10],
-                backgroundColor: [
-                    chartColors.warning,
-                    chartColors.info,
-                    chartColors.success,
-                    chartColors.danger
-                ],
-                borderWidth: 2,
-                borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        padding: 15,
-                        font: { size: 12 }
-                    }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return context.label + ': ' + context.parsed + '%';
+// 1. Gráfico Circular - Órdenes por Estado (DATOS REALES)
+async function createOrderStatusChart() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/estadisticas/ordenes-por-estado`);
+        if (!response.ok) throw new Error('Error al cargar órdenes por estado');
+        
+        const data = await response.json();
+        console.log('📊 Órdenes por estado:', data);
+        
+        const ctx = document.getElementById('orderStatusChart').getContext('2d');
+        orderStatusChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Pendiente', 'En Progreso', 'Completado', 'Cancelado'],
+                datasets: [{
+                    data: [
+                        data.PENDIENTE || 0,
+                        data.EN_PROGRESO || 0,
+                        data.COMPLETADO || 0,
+                        data.CANCELADO || 0
+                    ],
+                    backgroundColor: [
+                        chartColors.warning,
+                        chartColors.info,
+                        chartColors.success,
+                        chartColors.danger
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: { size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                return context.label + ': ' + context.parsed + ' (' + percentage + '%)';
+                            }
                         }
                     }
                 }
             }
-        }
-    });
+        });
+    } catch (error) {
+        console.error('Error en gráfico de órdenes:', error);
+        throw error;
+    }
 }
 
-// 2. Gráfico de Barras - Ventas Mensuales
-function createMonthlySalesChart() {
-    const ctx = document.getElementById('monthlySalesChart').getContext('2d');
-    monthlySalesChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep'],
-            datasets: [{
-                label: 'Ventas (S/.)',
-                data: [12000, 19000, 15000, 22000, 18000, 25000, 28000, 24000, 30000],
-                backgroundColor: chartColors.success,
-                borderRadius: 8
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: { display: false }
+// 2. Gráfico de Barras - Ventas Mensuales (DATOS REALES)
+async function createMonthlySalesChart() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/estadisticas/ventas-mensuales`);
+        if (!response.ok) throw new Error('Error al cargar ventas mensuales');
+        
+        const data = await response.json();
+        console.log('💰 Ventas mensuales:', data);
+        
+        const ctx = document.getElementById('monthlySalesChart').getContext('2d');
+        monthlySalesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.meses,
+                datasets: [{
+                    label: 'Ventas (S/.)',
+                    data: data.ventas,
+                    backgroundColor: chartColors.success,
+                    borderRadius: 8
+                }]
             },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return 'S/. ' + value.toLocaleString();
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'S/. ' + context.parsed.y.toFixed(2);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'S/. ' + value.toLocaleString();
+                            }
                         }
                     }
                 }
             }
-        }
-    });
+        });
+    } catch (error) {
+        console.error('Error en gráfico de ventas:', error);
+        throw error;
+    }
 }
 
-// 3. Gráfico de Línea - Tendencia de Servicios
-function createServiceTrendChart() {
-    const ctx = document.getElementById('serviceTrendChart').getContext('2d');
-    serviceTrendChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep'],
-            datasets: [
-                {
-                    label: 'Reparaciones',
-                    data: [45, 52, 48, 65, 59, 70, 75, 72, 80],
-                    borderColor: chartColors.primary,
-                    backgroundColor: chartColors.primary + '20',
-                    tension: 0.4,
-                    fill: true
+// 3. Gráfico de Línea - Tendencia de Servicios (DATOS REALES)
+async function createServiceTrendChart() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/estadisticas/tendencia-servicios`);
+        if (!response.ok) throw new Error('Error al cargar tendencia de servicios');
+        
+        const data = await response.json();
+        console.log('📈 Tendencia de servicios:', data);
+        
+        const ctx = document.getElementById('serviceTrendChart').getContext('2d');
+        serviceTrendChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.meses,
+                datasets: [
+                    {
+                        label: 'Reparaciones',
+                        data: data.reparaciones,
+                        borderColor: chartColors.primary,
+                        backgroundColor: chartColors.primary + '20',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Mantenimientos',
+                        data: data.mantenimientos,
+                        borderColor: chartColors.warning,
+                        backgroundColor: chartColors.warning + '20',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 15 }
+                    }
                 },
-                {
-                    label: 'Mantenimientos',
-                    data: [30, 38, 42, 45, 48, 52, 55, 58, 62],
-                    borderColor: chartColors.warning,
-                    backgroundColor: chartColors.warning + '20',
-                    tension: 0.4,
-                    fill: true
+                scales: {
+                    y: { beginAtZero: true }
                 }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: { padding: 15 }
-                }
-            },
-            scales: {
-                y: { beginAtZero: true }
             }
-        }
-    });
+        });
+    } catch (error) {
+        console.error('Error en gráfico de tendencia:', error);
+        throw error;
+    }
 }
 
-// 4. Gráfico Donut - Distribución de Clientes
-function createCustomerDistChart() {
-    const ctx = document.getElementById('customerDistChart').getContext('2d');
-    customerDistChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Corporativos', 'PYMES', 'Particulares', 'Gobierno'],
-            datasets: [{
-                data: [40, 30, 20, 10],
-                backgroundColor: [
-                    chartColors.primary,
-                    chartColors.info,
-                    chartColors.success,
-                    chartColors.warning
-                ],
-                borderWidth: 2,
-                borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: { padding: 15 }
-                }
+// 4. Gráfico Donut - Distribución de Clientes (DATOS REALES)
+async function createCustomerDistChart() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/estadisticas/distribucion-clientes`);
+        if (!response.ok) throw new Error('Error al cargar distribución de clientes');
+        
+        const data = await response.json();
+        console.log('👥 Distribución de clientes:', data);
+        
+        const ctx = document.getElementById('customerDistChart').getContext('2d');
+        customerDistChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(data),
+                datasets: [{
+                    data: Object.values(data),
+                    backgroundColor: [
+                        chartColors.primary,
+                        chartColors.info,
+                        chartColors.success,
+                        chartColors.warning
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
             },
-            cutout: '60%'
-        }
-    });
-}
-
-// 5. Gráfico de Barras Horizontales - Inventario
-function createInventoryChart() {
-    const ctx = document.getElementById('inventoryChart').getContext('2d');
-    inventoryChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Laptops', 'PCs', 'Periféricos', 'Componentes', 'Accesorios'],
-            datasets: [{
-                label: 'Unidades en Stock',
-                data: [85, 65, 150, 120, 200],
-                backgroundColor: chartColors.info,
-                borderRadius: 8
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: { display: false }
-            },
-            scales: {
-                x: { beginAtZero: true }
-            }
-        }
-    });
-}
-
-// 6. Gráfico Radar - Rendimiento de Técnicos
-function createTechnicianPerformanceChart() {
-    const ctx = document.getElementById('technicianPerformanceChart').getContext('2d');
-    techPerfChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: ['Velocidad', 'Calidad', 'Satisfacción', 'Eficiencia', 'Puntualidad'],
-            datasets: [
-                {
-                    label: 'Técnico A',
-                    data: [85, 90, 88, 92, 87],
-                    borderColor: chartColors.primary,
-                    backgroundColor: chartColors.primary + '30',
-                    pointBackgroundColor: chartColors.primary
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 15 }
+                    }
                 },
-                {
-                    label: 'Técnico B',
-                    data: [78, 85, 90, 88, 92],
-                    borderColor: chartColors.success,
-                    backgroundColor: chartColors.success + '30',
-                    pointBackgroundColor: chartColors.success
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: { padding: 15 }
-                }
+                cutout: '60%'
+            }
+        });
+    } catch (error) {
+        console.error('Error en gráfico de clientes:', error);
+        throw error;
+    }
+}
+
+// 5. Gráfico de Barras Horizontales - Inventario (DATOS REALES)
+async function createInventoryChart() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/estadisticas/inventario-categoria`);
+        if (!response.ok) throw new Error('Error al cargar inventario');
+        
+        const data = await response.json();
+        console.log('📦 Inventario por categoría:', data);
+        
+        const ctx = document.getElementById('inventoryChart').getContext('2d');
+        inventoryChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(data),
+                datasets: [{
+                    label: 'Unidades en Stock',
+                    data: Object.values(data),
+                    backgroundColor: chartColors.info,
+                    borderRadius: 8
+                }]
             },
-            scales: {
-                r: {
-                    beginAtZero: true,
-                    max: 100
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { beginAtZero: true }
                 }
             }
-        }
-    });
+        });
+    } catch (error) {
+        console.error('Error en gráfico de inventario:', error);
+        throw error;
+    }
+}
+
+// 6. Gráfico Radar - Rendimiento de Técnicos (DATOS REALES)
+async function createTechnicianPerformanceChart() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/estadisticas/rendimiento-tecnicos`);
+        if (!response.ok) throw new Error('Error al cargar rendimiento de técnicos');
+        
+        const data = await response.json();
+        console.log('⭐ Rendimiento de técnicos:', data);
+        
+        const ctx = document.getElementById('technicianPerformanceChart').getContext('2d');
+        techPerfChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: data.categorias,
+                datasets: [
+                    {
+                        label: 'Técnico A',
+                        data: data.tecnicoA,
+                        borderColor: chartColors.primary,
+                        backgroundColor: chartColors.primary + '30',
+                        pointBackgroundColor: chartColors.primary
+                    },
+                    {
+                        label: 'Técnico B',
+                        data: data.tecnicoB,
+                        borderColor: chartColors.success,
+                        backgroundColor: chartColors.success + '30',
+                        pointBackgroundColor: chartColors.success
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 15 }
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    } catch (error) {
+        console.error('Error en gráfico de técnicos:', error);
+        throw error;
+    }
 }
 
 // Función para actualizar todos los gráficos
-function refreshCharts() {
+async function refreshCharts() {
     const btn = document.querySelector('.btn-add');
     const icon = btn.querySelector('i');
     
@@ -264,63 +357,30 @@ function refreshCharts() {
     icon.classList.add('fa-spin');
     btn.disabled = true;
     
-    setTimeout(() => {
-        // Actualizar datos del gráfico de órdenes
-        orderStatusChart.data.datasets[0].data = [
-            Math.floor(Math.random() * 40) + 10,
-            Math.floor(Math.random() * 40) + 10,
-            Math.floor(Math.random() * 40) + 10,
-            Math.floor(Math.random() * 20) + 5
-        ];
-        orderStatusChart.update();
+    try {
+        console.log('🔄 Actualizando gráficos...');
         
-        // Actualizar datos del gráfico de ventas
-        monthlySalesChart.data.datasets[0].data = monthlySalesChart.data.datasets[0].data.map(() => 
-            Math.floor(Math.random() * 20000) + 10000
-        );
-        monthlySalesChart.update();
+        // Destruir gráficos existentes
+        if (orderStatusChart) orderStatusChart.destroy();
+        if (monthlySalesChart) monthlySalesChart.destroy();
+        if (serviceTrendChart) serviceTrendChart.destroy();
+        if (customerDistChart) customerDistChart.destroy();
+        if (inventoryChart) inventoryChart.destroy();
+        if (techPerfChart) techPerfChart.destroy();
         
-        // Actualizar tendencia de servicios
-        serviceTrendChart.data.datasets[0].data = serviceTrendChart.data.datasets[0].data.map(() => 
-            Math.floor(Math.random() * 40) + 40
-        );
-        serviceTrendChart.data.datasets[1].data = serviceTrendChart.data.datasets[1].data.map(() => 
-            Math.floor(Math.random() * 35) + 30
-        );
-        serviceTrendChart.update();
+        // Recargar todos los gráficos
+        await initCharts();
         
-        // Actualizar distribución de clientes
-        customerDistChart.data.datasets[0].data = [
-            Math.floor(Math.random() * 30) + 30,
-            Math.floor(Math.random() * 25) + 20,
-            Math.floor(Math.random() * 20) + 15,
-            Math.floor(Math.random() * 15) + 10
-        ];
-        customerDistChart.update();
+        showNotification('¡Gráficos actualizados exitosamente!', 'success');
         
-        // Actualizar inventario
-        inventoryChart.data.datasets[0].data = inventoryChart.data.datasets[0].data.map(() => 
-            Math.floor(Math.random() * 150) + 50
-        );
-        inventoryChart.update();
-        
-        // Actualizar rendimiento de técnicos
-        techPerfChart.data.datasets[0].data = techPerfChart.data.datasets[0].data.map(() => 
-            Math.floor(Math.random() * 20) + 75
-        );
-        techPerfChart.data.datasets[1].data = techPerfChart.data.datasets[1].data.map(() => 
-            Math.floor(Math.random() * 20) + 75
-        );
-        techPerfChart.update();
-        
+    } catch (error) {
+        console.error('Error al actualizar:', error);
+        showNotification('Error al actualizar gráficos: ' + error.message, 'danger');
+    } finally {
         // Quitar animación y habilitar botón
         icon.classList.remove('fa-spin');
         btn.disabled = false;
-        
-        // Mostrar notificación de éxito
-        showNotification('¡Gráficos actualizados exitosamente!', 'success');
-        
-    }, 1500);
+    }
 }
 
 // Animaciones de entrada
@@ -337,7 +397,7 @@ function initAnimations() {
     });
 }
 
-// Función de notificación (reutilizando del dashboard.js)
+// Función de notificación
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
@@ -356,10 +416,9 @@ function showNotification(message, type = 'success') {
     
     document.body.appendChild(notification);
     
-    // Auto-remover después de 3 segundos
     setTimeout(() => {
         notification.remove();
     }, 3000);
 }
 
-console.log('Estadísticas inicializadas correctamente');
+console.log('✅ Sistema de estadísticas con datos reales inicializado');

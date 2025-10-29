@@ -50,64 +50,80 @@ async function cargarDetallesOrden(ordenId) {
 
 // ==================== MOSTRAR DATOS EN LA INTERFAZ ====================
 function mostrarDetallesOrden(orden) {
-    // Actualizar número de ticket
-    const ticketNumber = document.querySelector('.ticket-number');
-    ticketNumber.innerHTML = `# DE TICKET: <span class="text-primary fw-bold">${orden.numeroOrden}</span>`;
+    // Obtener el contenedor principal
+    const ticketContent = document.querySelector('.ticket-content');
     
-    // Actualizar estado
-    const ticketStatus = document.querySelector('.ticket-status');
+    if (!ticketContent) {
+        console.error('No se encontró el contenedor .ticket-content');
+        return;
+    }
+    
+    // Obtener configuración del estado
     const estadoConfig = obtenerConfigEstado(orden.estado);
-    ticketStatus.textContent = estadoConfig.texto;
-    ticketStatus.style.color = estadoConfig.color;
     
-    // Actualizar barra de progreso
-    const progressBar = document.querySelector('.status-progress');
-    progressBar.style.width = estadoConfig.porcentaje + '%';
-    progressBar.style.background = estadoConfig.gradiente;
-    
-    // Actualizar detalles del pedido
-    const ticketDetails = document.querySelector('.ticket-details');
+    // Datos del cliente
     const clienteNombre = orden.cliente ? orden.cliente.nombre : 'Cliente no especificado';
     const clienteDNI = orden.cliente ? orden.cliente.dni : 'N/A';
     const clienteEmail = orden.cliente ? orden.cliente.email : 'N/A';
     const clienteTelefono = orden.cliente ? orden.cliente.telefono : 'N/A';
     
-    ticketDetails.innerHTML = `
-        <div class="details-label mb-3">Detalles del Pedido</div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <strong><i class="fas fa-user me-2 text-primary"></i>Cliente:</strong><br>
-                <span class="ms-4">${clienteNombre}</span>
-            </div>
-            <div class="col-md-6 mb-3">
-                <strong><i class="fas fa-id-card me-2 text-primary"></i>DNI:</strong><br>
-                <span class="ms-4">${clienteDNI}</span>
-            </div>
-            <div class="col-md-6 mb-3">
-                <strong><i class="fas fa-envelope me-2 text-primary"></i>Email:</strong><br>
-                <span class="ms-4">${clienteEmail}</span>
-            </div>
-            <div class="col-md-6 mb-3">
-                <strong><i class="fas fa-phone me-2 text-primary"></i>Teléfono:</strong><br>
-                <span class="ms-4">${clienteTelefono}</span>
-            </div>
-            <div class="col-12 mb-2">
-                <strong><i class="fas fa-clipboard-list me-2 text-primary"></i>Descripción:</strong><br>
-                <span class="ms-4">${orden.resumenPedido || 'Sin descripción'}</span>
+    // Calcular fecha estimada
+    const fechaEstimada = calcularFechaEstimada(orden.fechaCreacion, orden.estado);
+    
+    // Construir el HTML completo
+    ticketContent.innerHTML = `
+        <div class="ticket-number"># DE TICKET: <span class="text-primary fw-bold">${orden.numeroOrden}</span></div>
+        
+        <div class="ticket-status" style="color: ${estadoConfig.color}">
+            ${estadoConfig.texto}
+        </div>
+        
+        <div class="status-progress" style="width: ${estadoConfig.porcentaje}%; background: ${estadoConfig.gradiente}; height: 8px; border-radius: 4px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        
+        <div class="ticket-details" style="background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 12px; padding: 20px; margin-bottom: 25px; transition: all 0.3s ease;">
+            <div class="details-label mb-3" style="color: #6c757d; font-weight: 500;">Detalles del Pedido</div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <strong><i class="fas fa-user me-2 text-primary"></i>Cliente:</strong><br>
+                    <span class="ms-4">${clienteNombre}</span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <strong><i class="fas fa-id-card me-2 text-primary"></i>DNI:</strong><br>
+                    <span class="ms-4">${clienteDNI}</span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <strong><i class="fas fa-envelope me-2 text-primary"></i>Email:</strong><br>
+                    <span class="ms-4">${clienteEmail}</span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <strong><i class="fas fa-phone me-2 text-primary"></i>Teléfono:</strong><br>
+                    <span class="ms-4">${clienteTelefono}</span>
+                </div>
+                <div class="col-12 mb-2">
+                    <strong><i class="fas fa-clipboard-list me-2 text-primary"></i>Descripción:</strong><br>
+                    <span class="ms-4">${orden.resumenPedido || 'Sin descripción'}</span>
+                </div>
             </div>
         </div>
-    `;
-    
-    // Actualizar fecha de entrega estimada
-    const deliveryDate = document.querySelector('.delivery-date');
-    const fechaEstimada = calcularFechaEstimada(orden.fechaCreacion, orden.estado);
-    deliveryDate.innerHTML = `
-        <i class="fas fa-calendar-alt me-2"></i>
-        Fecha de entrega estimada: <strong>${fechaEstimada}</strong>
+        
+        <div class="delivery-date" style="color: #6c757d; font-size: 1em; margin-bottom: 20px; font-weight: 500;">
+            <i class="fas fa-calendar-alt me-2"></i>
+            Fecha de entrega estimada: <strong>${fechaEstimada}</strong>
+        </div>
+        
+        <div class="text-center">
+            <button class="btn support-btn floating-animation" style="background: linear-gradient(135deg, #48C9B0, #5DADE2); border: none; color: white; padding: 14px 35px; border-radius: 30px; font-weight: 600; font-size: 1.05em; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(72, 201, 176, 0.3);">
+                <i class="fas fa-comments me-2"></i>
+                Hablar con soporte
+            </button>
+        </div>
     `;
     
     // Mostrar información adicional según el estado
     mostrarInfoAdicional(orden);
+    
+    // Reinicializar eventos después de crear el contenido
+    initEventListeners();
 }
 
 // ==================== CONFIGURACIÓN DE ESTADOS ====================
