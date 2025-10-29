@@ -28,7 +28,6 @@ function loadPageData() {
         cargarInventario();
     }
 }
-
 // ==================== FUNCIONES API - CLIENTES ====================
 
 async function cargarClientes() {
@@ -321,6 +320,10 @@ function initModalFunctionality() {
         
         if (currentPage.includes('dashboard_clientes.html')) {
             await submitClienteForm();
+        } else if (currentPage.includes('dashboard_inventario.html')) {
+            await submitInventarioForm();
+        } else if (currentPage.includes('dashboard_servicios.html')) {
+            await submitServicioForm();
         } else if (currentPage.includes('dashboard_ordenes.html')) {
             // await submitOrdenForm();
         }
@@ -332,50 +335,17 @@ function initModalFunctionality() {
             orderForm.reset();
             delete orderForm.dataset.editing;
             orderForm.classList.remove('was-validated');
-        });
-    }
-}
-
-async function submitClienteForm() {
-    const form = document.getElementById('orderForm');
-    const saveBtn = document.querySelector('.btn-modal-save');
-    const originalText = saveBtn.innerHTML;
-    
-    const clienteData = {
-        nombre: document.getElementById('nombreCompleto').value,
-        dni: document.getElementById('username').value,
-        email: document.getElementById('email').value,
-        telefono: document.getElementById('telefono').value,
-        estado: document.getElementById('rol').value
-    };
-    
-    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Guardando...';
-    saveBtn.disabled = true;
-    
-    try {
-        if (form.dataset.editing) {
-            // Actualizar cliente existente
-            await actualizarCliente(form.dataset.editing, clienteData);
-        } else {
-            // Crear nuevo cliente
-            await guardarCliente(clienteData);
-        }
-        
-        saveBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Guardado!';
-        
-        setTimeout(() => {
-            const modalInstance = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
-            modalInstance.hide();
             
-            form.reset();
-            delete form.dataset.editing;
-            saveBtn.innerHTML = originalText;
-            saveBtn.disabled = false;
-        }, 1500);
-        
-    } catch (error) {
-        saveBtn.innerHTML = originalText;
-        saveBtn.disabled = false;
+            // Restaurar título según la página
+            const currentPage = window.location.pathname;
+            if (currentPage.includes('dashboard_servicios.html')) {
+                document.querySelector('.modal-title').textContent = 'Nuevo Servicio';
+            } else if (currentPage.includes('dashboard_inventario.html')) {
+                document.querySelector('.modal-title').textContent = 'Nuevo Producto';
+            } else {
+                document.querySelector('.modal-title').textContent = 'Nuevo Registro';
+            }
+        });
     }
 }
 
@@ -736,37 +706,222 @@ async function submitInventarioForm() {
     }
 }
 
-// ==================== ACTUALIZAR initModalFunctionality ====================
-// REEMPLAZA LA FUNCIÓN initModalFunctionality EXISTENTE CON ESTA:
+// ==================== FUNCIONES API - SERVICIOS ====================
 
-function initModalFunctionality() {
-    const orderForm = document.getElementById('orderForm');
-    const modal = document.getElementById('orderModal');
-    
-    if (!orderForm) return;
-    
-    orderForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+async function cargarServicios() {
+    try {
+        showNotification('Cargando servicios...', 'info');
         
-        const currentPage = window.location.pathname;
+        const response = await fetch(`${API_BASE_URL}/servicios`);
         
-        if (currentPage.includes('dashboard_clientes.html')) {
-            await submitClienteForm();
-        } else if (currentPage.includes('dashboard_inventario.html')) {
-            await submitInventarioForm();
-        } else if (currentPage.includes('dashboard_ordenes.html')) {
-            // await submitOrdenForm();
+        if (!response.ok) {
+            throw new Error('Error al cargar servicios');
         }
-    });
-    
-    // Limpiar formulario al cerrar modal
-    if (modal) {
-        modal.addEventListener('hidden.bs.modal', function() {
-            orderForm.reset();
-            delete orderForm.dataset.editing;
-            orderForm.classList.remove('was-validated');
-            document.querySelector('.modal-title').textContent = 'Nuevo Producto';
-        });
+        
+        const servicios = await response.json();
+        mostrarServiciosEnTabla(servicios);
+        
+        showNotification('Servicios cargados exitosamente', 'success');
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al cargar servicios: ' + error.message, 'danger');
     }
 }
+
+function mostrarServiciosEnTabla(servicios) {
+    const tbody = document.querySelector('#ordersTable tbody');
+    
+    if (!tbody) {
+        console.error('No se encontró la tabla');
+        return;
+    }
+    
+    tbody.innerHTML = '';
+    
+    if (servicios.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="5" class="text-center text-muted">
+                    <i class="fas fa-inbox fa-3x mb-3 d-block"></i>
+                    No hay servicios registrados
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    servicios.forEach(servicio => {
+        const estadoBadgeClass = servicio.estado === 'ACTIVO' ? 'status-completed' : 'bg-secondary';
+        
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${servicio.grupo}</td>
+            <td>${servicio.nombre}</td>
+            <td>${servicio.descripcion || 'N/A'}</td>
+            <td>S/. ${parseFloat(servicio.precio).toFixed(2)}</td>
+            <td>
+                <button class="btn btn-sm btn-edit me-1" title="Editar" 
+                        onclick="editarServicio(${servicio.id})">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-delete" title="Eliminar"
+                        onclick="eliminarServicio(${servicio.id}, '${servicio.nombre}')">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+    
+    updatePaginationInfo();
+}
+
+async function guardarServicio(servicioData) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/servicios`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(servicioData)
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al guardar servicio');
+        }
+        
+        const servicio = await response.json();
+        showNotification('Servicio guardado exitosamente', 'success');
+        cargarServicios();
+        return servicio;
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error: ' + error.message, 'danger');
+        throw error;
+    }
+}
+
+async function eliminarServicio(id, nombre) {
+    if (!confirm(`¿Estás seguro de que deseas eliminar "${nombre}"?`)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/servicios/${id}`, {
+            method: 'DELETE'
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al eliminar servicio');
+        }
+        
+        showNotification('Servicio eliminado exitosamente', 'success');
+        cargarServicios();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al eliminar servicio: ' + error.message, 'danger');
+    }
+}
+
+async function editarServicio(id) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/servicios/${id}`);
+        if (!response.ok) throw new Error('Error al cargar servicio');
+        
+        const servicio = await response.json();
+        
+        // Llenar el formulario con los datos del servicio
+        document.getElementById('grupoServicio').value = servicio.grupo;
+        document.getElementById('nombreServicio').value = servicio.nombre;
+        document.getElementById('descripcionServicio').value = servicio.descripcion || '';
+        document.getElementById('precioServicio').value = servicio.precio;
+        document.getElementById('estadoServicio').value = servicio.estado;
+        
+        // Cambiar el título del modal
+        document.querySelector('.modal-title').textContent = 'Editar Servicio';
+        
+        // Cambiar el comportamiento del formulario para actualizar
+        const form = document.getElementById('orderForm');
+        form.dataset.editing = id;
+        
+        // Abrir el modal
+        const modal = new bootstrap.Modal(document.getElementById('orderModal'));
+        modal.show();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al cargar datos del servicio', 'danger');
+    }
+}
+
+async function actualizarServicio(id, servicioData) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/servicios/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(servicioData)
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al actualizar servicio');
+        }
+        
+        showNotification('Servicio actualizado exitosamente', 'success');
+        cargarServicios();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al actualizar servicio: ' + error.message, 'danger');
+        throw error;
+    }
+}
+
+async function submitServicioForm() {
+    const form = document.getElementById('orderForm');
+    const saveBtn = document.querySelector('.btn-modal-save');
+    const originalText = saveBtn.innerHTML;
+    
+    const servicioData = {
+        grupo: document.getElementById('grupoServicio').value,
+        nombre: document.getElementById('nombreServicio').value,
+        descripcion: document.getElementById('descripcionServicio').value,
+        precio: parseFloat(document.getElementById('precioServicio').value),
+        estado: document.getElementById('estadoServicio').value
+    };
+    
+    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Guardando...';
+    saveBtn.disabled = true;
+    
+    try {
+        if (form.dataset.editing) {
+            // Actualizar servicio existente
+            await actualizarServicio(form.dataset.editing, servicioData);
+        } else {
+            // Crear nuevo servicio
+            await guardarServicio(servicioData);
+        }
+        
+        saveBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Guardado!';
+        
+        setTimeout(() => {
+            const modalInstance = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
+            modalInstance.hide();
+            
+            form.reset();
+            delete form.dataset.editing;
+            document.querySelector('.modal-title').textContent = 'Nuevo Servicio';
+            saveBtn.innerHTML = originalText;
+            saveBtn.disabled = false;
+        }, 1500);
+        
+    } catch (error) {
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
+    }
+}
+
 console.log('Dashboard con API inicializado correctamente');

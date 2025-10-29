@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Tech - Dashboard</title>
+    <title>Support Tech - Dashboard Servicios</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header con búsqueda -->
@@ -42,7 +42,7 @@
                     <li><a class="dropdown-item" href="#"><i class="fas fa-user-edit me-2"></i>Editar Perfil</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Ajustes</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                    <li><a class="dropdown-item text-danger" href="/index.html"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
                 </ul>
             </div>
         </div>
@@ -55,31 +55,31 @@
                 <div class="sidebar-content">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="dashboard_ordenes.html" data-section="ordenes">
+                            <a class="nav-link" href="/dashboard/dashboard_ordenes.html">
                                 <i class="fas fa-list-alt me-2"></i>
                                 ORDENES
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="dashboard_inventario.html" data-section="inventario">
+                            <a class="nav-link" href="/dashboard/dashboard_inventario.html">
                                 <i class="fas fa-boxes me-2"></i>
                                 INVENTARIO
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard_clientes.html" data-section="clientes">
+                            <a class="nav-link" href="/dashboard/dashboard_clientes.html">
                                 <i class="fas fa-users me-2"></i>
                                 CLIENTES
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard_servicios.html" data-section="servicios">
+                            <a class="nav-link active" href="/dashboard/dashboard_servicios.html">
                                 <i class="fas fa-tools me-2"></i>
                                 SERVICIOS
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard_estadisticas.html" data-section="estadistica">
+                            <a class="nav-link" href="/dashboard/dashboard_estadisticas.html">
                                 <i class="fas fa-chart-bar me-2"></i>
                                 ESTADISTICA
                             </a>
@@ -135,61 +135,25 @@
                                 </div>
                             </div>
 
-                            <!-- Tabla de órdenes -->
+                            <!-- Tabla de servicios -->
                             <div class="table-responsive">
                                 <table class="table table-striped" id="ordersTable">
                                     <thead>
                                         <tr>
-                                            <th>Grupo<i class="fas fa-sort"></i></th>
-                                            <th>Nombre<i class="fas fa-sort"></i></th>
-                                            <th>Descripción<i class="fas fa-sort"></i></th>
+                                            <th>Grupo <i class="fas fa-sort"></i></th>
+                                            <th>Nombre <i class="fas fa-sort"></i></th>
+                                            <th>Descripción <i class="fas fa-sort"></i></th>
                                             <th>Precio <i class="fas fa-sort"></i></th>
-                                            <th>Acciones <i class="fas fa-sort"></i></th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Desarrollo</td>
-                                            <td>Servicio 1</td>
-                                            <td>Descripción del servicio 1</td>
-                                            <td>$100</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-edit me-1" title="Editar">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn btn-sm btn-delete" title="Eliminar">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Hardware</td>
-                                            <td>Servicio 2</td>
-                                            <td>Descripción del servicio 2</td>
-                                            <td>$150</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-edit me-1" title="Editar">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn btn-sm btn-delete" title="Eliminar">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Software</td>
-                                            <td>Servicio 3</td>
-                                            <td>Descripción del servicio 3</td>
-                                            <td>$200</td>
-                                            <td>
-                                                <button class="btn btn-sm btn-edit me-1" title="Editar">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                                <button class="btn btn-sm btn-delete" title="Eliminar">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
+                                            <td colspan="5" class="text-center py-5">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="visually-hidden">Cargando...</span>
+                                                </div>
+                                                <p class="mt-3">Cargando servicios...</p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -199,7 +163,7 @@
                             <!-- Paginación -->
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <div class="pagination-info">
-                                    Showing 1 to 4 of 4 entries
+                                    Cargando datos...
                                 </div>
                                 <nav aria-label="Table pagination">
                                     <ul class="pagination pagination-sm mb-0">
@@ -216,17 +180,18 @@
                                 </nav>
                             </div>
                         </div>
-
+                    </div>
                 </div>
             </main>
         </div>
     </div>
 
-    <!-- Modal para Ingresar Orden -->
+    <!-- Modal para Ingresar Servicio -->
     <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content order-modal">
                 <div class="modal-header border-0">
+                    <h5 class="modal-title">Nuevo Servicio</h5>
                     <button type="button" class="btn-close btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fas fa-times"></i>
                     </button>
@@ -234,28 +199,29 @@
                 <div class="modal-body">
                     <form id="orderForm">
                         <div class="mb-4">
-                            <label for="nombreCompleto" class="form-label">Grupo:</label>
-                            <input type="text" class="form-control form-control-custom" id="nombreCompleto" required>
+                            <label for="grupoServicio" class="form-label">Grupo:</label>
+                            <input type="text" class="form-control form-control-custom" id="grupoServicio" placeholder="Ej: Desarrollo" required>
                         </div>
                         <div class="mb-4">
-                            <label for="username" class="form-label">Nombre del Servicio:</label>
-                            <input type="text" class="form-control form-control-custom" id="username" required>
+                            <label for="nombreServicio" class="form-label">Nombre del Servicio:</label>
+                            <input type="text" class="form-control form-control-custom" id="nombreServicio" placeholder="Ej: Desarrollo Web" required>
                         </div>
                         <div class="mb-4">
-                            <label for="email" class="form-label">Descripción:</label>
-                            <input type="email" class="form-control form-control-custom" id="email" required>
+                            <label for="descripcionServicio" class="form-label">Descripción:</label>
+                            <textarea class="form-control form-control-custom" id="descripcionServicio" rows="3" placeholder="Descripción del servicio"></textarea>
                         </div>
                         <div class="mb-4">
-                            <label for="telefono" class="form-label">Precio:</label>
-                            <input type="text" class="form-control form-control-custom" id="telefono" required>
+                            <label for="precioServicio" class="form-label">Precio:</label>
+                            <input type="number" class="form-control form-control-custom" id="precioServicio" step="0.01" placeholder="0.00" required>
                         </div>
-                            <div class="mb-4">
-                            <label for="rol" class="form-label">Estado:</label>
-                            <select class="form-select form-control-custom" id="rol" required>
+                        <div class="mb-4">
+                            <label for="estadoServicio" class="form-label">Estado:</label>
+                            <select class="form-select form-control-custom" id="estadoServicio" required>
                                 <option value="">Seleccionar Estado</option>
-                                <option value="admin">Activo</option>
-                                <option value="tecnico">Inactivo</option>
-                                </select>
+                                <option value="ACTIVO">Activo</option>
+                                <option value="INACTIVO">Inactivo</option>
+                            </select>
+                        </div>
                         <div class="modal-buttons">
                             <button type="button" class="btn btn-secondary btn-modal-cancel" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary btn-modal-save">Guardar</button>
@@ -267,6 +233,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/dashboard.js"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 </html>
