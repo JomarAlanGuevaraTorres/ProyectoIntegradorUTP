@@ -18,6 +18,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class InventarioController {
     
+    
     @Autowired
     private InventarioService inventarioService;
     

@@ -53,10 +53,7 @@ async function cargarClientes() {
 function mostrarClientesEnTabla(clientes) {
     const tbody = document.querySelector('#ordersTable tbody');
     
-    if (!tbody) {
-        console.error('No se encontró la tabla');
-        return;
-    }
+    if (!tbody) return;
     
     tbody.innerHTML = '';
     
@@ -115,7 +112,7 @@ async function guardarCliente(clienteData) {
         
         const cliente = await response.json();
         showNotification('Cliente guardado exitosamente', 'success');
-        cargarClientes(); // Recargar la tabla
+        cargarClientes();
         return cliente;
         
     } catch (error) {
@@ -136,15 +133,18 @@ async function eliminarCliente(id, nombre) {
         });
         
         if (!response.ok) {
+            if (response.status === 500) {
+                throw new Error('Este cliente tiene órdenes asociadas y no puede ser eliminado');
+            }
             throw new Error('Error al eliminar cliente');
         }
         
         showNotification('Cliente eliminado exitosamente', 'success');
-        cargarClientes(); // Recargar la tabla
+        cargarClientes();
         
     } catch (error) {
         console.error('Error:', error);
-        showNotification('Error al eliminar cliente: ' + error.message, 'danger');
+        showNotification(error.message, 'danger');
     }
 }
 
@@ -155,24 +155,103 @@ async function editarCliente(id) {
         
         const cliente = await response.json();
         
-        // Llenar el formulario con los datos del cliente
+        // Llenar el formulario
         document.getElementById('nombreCompleto').value = cliente.nombre;
         document.getElementById('username').value = cliente.dni;
         document.getElementById('email').value = cliente.email;
         document.getElementById('telefono').value = cliente.telefono || '';
         document.getElementById('rol').value = cliente.estado;
         
-        // Cambiar el comportamiento del formulario para actualizar
+        // Cambiar título del modal (verificar que exista)
+        const modalTitle = document.querySelector('.modal-title') || document.querySelector('.modal-header h5');
+        if (modalTitle) {
+            modalTitle.textContent = 'Editar Cliente';
+        }
+        
+        // Marcar como edición
         const form = document.getElementById('orderForm');
         form.dataset.editing = id;
         
-        // Abrir el modal
+        // Abrir modal
         const modal = new bootstrap.Modal(document.getElementById('orderModal'));
         modal.show();
         
     } catch (error) {
         console.error('Error:', error);
         showNotification('Error al cargar datos del cliente', 'danger');
+    }
+}
+
+async function actualizarCliente(id, clienteData) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/clientes/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(clienteData)
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al actualizar cliente');
+        }
+        
+        showNotification('Cliente actualizado exitosamente', 'success');
+        cargarClientes();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al actualizar cliente: ' + error.message, 'danger');
+        throw error;
+    }
+}
+
+async function submitClienteForm() {
+    const form = document.getElementById('orderForm');
+    const saveBtn = document.querySelector('.btn-modal-save');
+    const originalText = saveBtn.innerHTML;
+    
+    const clienteData = {
+        nombre: document.getElementById('nombreCompleto').value,
+        dni: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        telefono: document.getElementById('telefono').value,
+        estado: document.getElementById('rol').value
+    };
+    
+    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Guardando...';
+    saveBtn.disabled = true;
+    
+    try {
+        if (form.dataset.editing) {
+            // Actualizar cliente existente
+            await actualizarCliente(form.dataset.editing, clienteData);
+        } else {
+            // Crear nuevo cliente
+            await guardarCliente(clienteData);
+        }
+        
+        saveBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Guardado!';
+        
+        setTimeout(() => {
+            const modalInstance = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
+            modalInstance.hide();
+            
+            form.reset();
+            delete form.dataset.editing;
+            
+            const modalTitle = document.querySelector('.modal-title') || document.querySelector('.modal-header h5');
+            if (modalTitle) {
+                modalTitle.textContent = 'Nuevo Cliente';
+            }
+            
+            saveBtn.innerHTML = originalText;
+            saveBtn.disabled = false;
+        }, 1500);
+        
+    } catch (error) {
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
     }
 }
 
@@ -306,7 +385,6 @@ function updateMainContent(section) {
 }
 
 // ==================== MODAL ====================
-
 function initModalFunctionality() {
     const orderForm = document.getElementById('orderForm');
     const modal = document.getElementById('orderModal');
@@ -325,25 +403,37 @@ function initModalFunctionality() {
         } else if (currentPage.includes('dashboard_servicios.html')) {
             await submitServicioForm();
         } else if (currentPage.includes('dashboard_ordenes.html')) {
-            // await submitOrdenForm();
+            await submitOrdenForm();
         }
     });
+    
+    // Cargar clientes cuando se abre el modal de órdenes
+    if (modal && window.location.pathname.includes('dashboard_ordenes.html')) {
+        modal.addEventListener('show.bs.modal', function() {
+            cargarClientesParaModal();
+        });
+    }
     
     // Limpiar formulario al cerrar modal
     if (modal) {
         modal.addEventListener('hidden.bs.modal', function() {
             orderForm.reset();
-            delete orderForm.dataset.editing;
+            delete orderForm.dataset.editing; // ← IMPORTANTE: Limpiar el dataset
             orderForm.classList.remove('was-validated');
             
-            // Restaurar título según la página
             const currentPage = window.location.pathname;
-            if (currentPage.includes('dashboard_servicios.html')) {
-                document.querySelector('.modal-title').textContent = 'Nuevo Servicio';
-            } else if (currentPage.includes('dashboard_inventario.html')) {
-                document.querySelector('.modal-title').textContent = 'Nuevo Producto';
-            } else {
-                document.querySelector('.modal-title').textContent = 'Nuevo Registro';
+            const modalTitle = document.querySelector('.modal-title') || document.querySelector('.modal-header h5');
+            
+            if (modalTitle) {
+                if (currentPage.includes('dashboard_clientes.html')) {
+                    modalTitle.textContent = 'Nuevo Cliente';
+                } else if (currentPage.includes('dashboard_servicios.html')) {
+                    modalTitle.textContent = 'Nuevo Servicio';
+                } else if (currentPage.includes('dashboard_inventario.html')) {
+                    modalTitle.textContent = 'Nuevo Producto';
+                } else if (currentPage.includes('dashboard_ordenes.html')) {
+                    modalTitle.textContent = 'Nueva Orden';
+                }
             }
         });
     }
@@ -923,5 +1013,270 @@ async function submitServicioForm() {
         saveBtn.disabled = false;
     }
 }
+
+// ==================== FUNCIONES API - ÓRDENES ====================
+
+async function cargarOrdenes() {
+    try {
+        showNotification('Cargando órdenes...', 'info');
+        
+        const response = await fetch(`${API_BASE_URL}/ordenes`);
+        
+        if (!response.ok) {
+            throw new Error('Error al cargar órdenes');
+        }
+        
+        const ordenes = await response.json();
+        mostrarOrdenesEnTabla(ordenes);
+        
+        showNotification('Órdenes cargadas exitosamente', 'success');
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al cargar órdenes: ' + error.message, 'danger');
+    }
+}
+
+function mostrarOrdenesEnTabla(ordenes) {
+    const tbody = document.querySelector('#ordersTable tbody');
+    
+    if (!tbody) {
+        console.error('No se encontró la tabla');
+        return;
+    }
+    
+    tbody.innerHTML = '';
+    
+    if (ordenes.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="5" class="text-center text-muted">
+                    <i class="fas fa-inbox fa-3x mb-3 d-block"></i>
+                    No hay órdenes registradas
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    ordenes.forEach(orden => {
+        const estadoBadgeClass = {
+            'PENDIENTE': 'status-pending',
+            'EN_PROGRESO': 'status-in-progress',
+            'COMPLETADO': 'status-completed',
+            'CANCELADO': 'bg-danger text-white'
+        }[orden.estado] || 'status-pending';
+        
+        const estadoTexto = {
+            'PENDIENTE': 'Pendiente',
+            'EN_PROGRESO': 'En Progreso',
+            'COMPLETADO': 'Completado',
+            'CANCELADO': 'Cancelado'
+        }[orden.estado] || orden.estado;
+        
+        const clienteNombre = orden.cliente ? orden.cliente.nombre : 'N/A';
+        
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${orden.numeroOrden}</td>
+            <td>${clienteNombre}</td>
+            <td>${orden.resumenPedido || 'N/A'}</td>
+            <td><span class="badge ${estadoBadgeClass}">${estadoTexto}</span></td>
+            <td>
+                <button class="btn btn-sm btn-edit me-1" title="Editar" 
+                        onclick="editarOrden(${orden.id})">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-sm btn-delete" title="Eliminar"
+                        onclick="eliminarOrden(${orden.id}, '${orden.numeroOrden}')">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+    
+    updatePaginationInfo();
+}
+
+async function cargarClientesParaModal() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/clientes`);
+        if (!response.ok) throw new Error('Error al cargar clientes');
+        
+        const clientes = await response.json();
+        const select = document.getElementById('clienteId');
+        
+        // Limpiar opciones existentes excepto la primera
+        select.innerHTML = '<option value="">Seleccionar Cliente</option>';
+        
+        // Agregar opciones de clientes
+        clientes.forEach(cliente => {
+            const option = document.createElement('option');
+            option.value = cliente.id;
+            option.textContent = `${cliente.nombre} (${cliente.dni})`;
+            select.appendChild(option);
+        });
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al cargar clientes', 'warning');
+    }
+}
+
+async function guardarOrden(ordenData) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/ordenes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(ordenData)
+        });
+        
+        if (!response.ok) {
+            if (response.status === 409) {
+                throw new Error('Ya existe una orden con ese número');
+            }
+            throw new Error('Error al guardar orden');
+        }
+        
+        const orden = await response.json();
+        showNotification('Orden guardada exitosamente', 'success');
+        cargarOrdenes();
+        return orden;
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error: ' + error.message, 'danger');
+        throw error;
+    }
+}
+
+async function eliminarOrden(id, numeroOrden) {
+    if (!confirm(`¿Estás seguro de que deseas eliminar la orden "${numeroOrden}"?`)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/ordenes/${id}`, {
+            method: 'DELETE'
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al eliminar orden');
+        }
+        
+        showNotification('Orden eliminada exitosamente', 'success');
+        cargarOrdenes();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al eliminar orden: ' + error.message, 'danger');
+    }
+}
+
+async function editarOrden(id) {
+    try {
+        // Cargar clientes primero
+        await cargarClientesParaModal();
+        
+        const response = await fetch(`${API_BASE_URL}/ordenes/${id}`);
+        if (!response.ok) throw new Error('Error al cargar orden');
+        
+        const orden = await response.json();
+        
+        // Llenar el formulario con los datos de la orden
+        document.getElementById('numeroOrden').value = orden.numeroOrden;
+        document.getElementById('clienteId').value = orden.cliente ? orden.cliente.id : '';
+        document.getElementById('resumenPedido').value = orden.resumenPedido || '';
+        document.getElementById('estadoOrden').value = orden.estado;
+        
+        // Cambiar el título del modal
+        document.querySelector('.modal-title').textContent = 'Editar Orden';
+        
+        // Cambiar el comportamiento del formulario para actualizar
+        const form = document.getElementById('orderForm');
+        form.dataset.editing = id;
+        
+        // Abrir el modal
+        const modal = new bootstrap.Modal(document.getElementById('orderModal'));
+        modal.show();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al cargar datos de la orden', 'danger');
+    }
+}
+
+async function actualizarOrden(id, ordenData) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/ordenes/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(ordenData)
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al actualizar orden');
+        }
+        
+        showNotification('Orden actualizada exitosamente', 'success');
+        cargarOrdenes();
+        
+    } catch (error) {
+        console.error('Error:', error);
+        showNotification('Error al actualizar orden: ' + error.message, 'danger');
+        throw error;
+    }
+}
+
+async function submitOrdenForm() {
+    const form = document.getElementById('orderForm');
+    const saveBtn = document.querySelector('.btn-modal-save');
+    const originalText = saveBtn.innerHTML;
+    
+    const clienteId = document.getElementById('clienteId').value;
+    
+    const ordenData = {
+        numeroOrden: document.getElementById('numeroOrden').value,
+        cliente: clienteId ? { id: parseInt(clienteId) } : null,
+        resumenPedido: document.getElementById('resumenPedido').value,
+        estado: document.getElementById('estadoOrden').value
+    };
+    
+    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Guardando...';
+    saveBtn.disabled = true;
+    
+    try {
+        if (form.dataset.editing) {
+            // Actualizar orden existente
+            await actualizarOrden(form.dataset.editing, ordenData);
+        } else {
+            // Crear nueva orden
+            await guardarOrden(ordenData);
+        }
+        
+        saveBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Guardado!';
+        
+        setTimeout(() => {
+            const modalInstance = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
+            modalInstance.hide();
+            
+            form.reset();
+            delete form.dataset.editing;
+            document.querySelector('.modal-title').textContent = 'Nueva Orden';
+            saveBtn.innerHTML = originalText;
+            saveBtn.disabled = false;
+        }, 1500);
+        
+    } catch (error) {
+        saveBtn.innerHTML = originalText;
+        saveBtn.disabled = false;
+    }
+}
+
+
 
 console.log('Dashboard con API inicializado correctamente');
