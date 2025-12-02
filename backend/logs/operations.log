@@ -1,0 +1,7 @@
+2025-12-01 22:09:14.745 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 20872 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
+2025-12-01 22:09:14.748 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-01 22:09:25.083 [restartedMain] INFO  c.t.backend.BackendApplication - Started BackendApplication in 11.945 seconds (process running for 13.013)
+2025-12-01 22:09:25.104 [restartedMain] INFO  c.t.backend.BackendApplication - ╔═══════════════════════════════════════════════════════════════╗
+2025-12-01 22:09:25.106 [restartedMain] INFO  c.t.backend.BackendApplication - ║         ✅ APLICACIÓN TECHSOLUTIONS INICIADA                 ║
+2025-12-01 22:09:25.108 [restartedMain] INFO  c.t.backend.BackendApplication - ║         📅 Fecha: 2025-12-01T22:09:25.107060200      ║
+2025-12-01 22:09:25.109 [restartedMain] INFO  c.t.backend.BackendApplication - ╚═══════════════════════════════════════════════════════════════╝
