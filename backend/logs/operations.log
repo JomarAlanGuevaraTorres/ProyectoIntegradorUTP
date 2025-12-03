@@ -1,27 +1,74 @@
-2025-12-01 22:09:14.745 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 20872 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
-2025-12-01 22:09:14.748 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
-2025-12-01 22:09:25.083 [restartedMain] INFO  c.t.backend.BackendApplication - Started BackendApplication in 11.945 seconds (process running for 13.013)
-2025-12-01 22:09:25.104 [restartedMain] INFO  c.t.backend.BackendApplication - ╔═══════════════════════════════════════════════════════════════╗
-2025-12-01 22:09:25.106 [restartedMain] INFO  c.t.backend.BackendApplication - ║         ✅ APLICACIÓN TECHSOLUTIONS INICIADA                 ║
-2025-12-01 22:09:25.108 [restartedMain] INFO  c.t.backend.BackendApplication - ║         📅 Fecha: 2025-12-01T22:09:25.107060200      ║
-2025-12-01 22:09:25.109 [restartedMain] INFO  c.t.backend.BackendApplication - ╚═══════════════════════════════════════════════════════════════╝
-2025-12-01 22:15:16.565 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 5348 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
-2025-12-01 22:15:16.567 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
-2025-12-01 22:15:25.211 [restartedMain] INFO  c.t.backend.BackendApplication - Started BackendApplication in 9.745 seconds (process running for 10.691)
-2025-12-01 22:15:25.227 [restartedMain] INFO  c.t.backend.BackendApplication - ╔═══════════════════════════════════════════════════════════════╗
-2025-12-01 22:15:25.228 [restartedMain] INFO  c.t.backend.BackendApplication - ║         ✅ APLICACIÓN TECHSOLUTIONS INICIADA                 ║
-2025-12-01 22:15:25.229 [restartedMain] INFO  c.t.backend.BackendApplication - ║         📅 Fecha: 2025-12-01T22:15:25.229560700      ║
-2025-12-01 22:15:25.230 [restartedMain] INFO  c.t.backend.BackendApplication - ╚═══════════════════════════════════════════════════════════════╝
-2025-12-01 22:15:49.651 [http-nio-8080-exec-4] INFO  c.t.b.c.InventarioController - 📦 GET /api/inventario - Solicitando lista completa de inventario
-2025-12-01 22:15:49.687 [http-nio-8080-exec-4] INFO  c.t.b.c.InventarioController - ✅ Se obtuvieron 32 items de inventario - Total unidades: 430
-2025-12-01 22:15:51.000 [http-nio-8080-exec-7] INFO  c.t.b.controller.ClienteController - 📋 GET /api/clientes - Solicitando lista de todos los clientes
-2025-12-01 22:15:51.019 [http-nio-8080-exec-7] INFO  c.t.b.controller.ClienteController - ✅ Se obtuvieron 10 clientes exitosamente
-2025-12-01 22:16:00.251 [http-nio-8080-exec-9] INFO  c.t.b.controller.ClienteController - 📋 GET /api/clientes - Solicitando lista de todos los clientes
-2025-12-01 22:16:00.267 [http-nio-8080-exec-9] INFO  c.t.b.controller.ClienteController - ✅ Se obtuvieron 10 clientes exitosamente
-2025-12-01 22:16:11.916 [http-nio-8080-exec-3] INFO  c.t.b.controller.ClienteController - 🔍 GET /api/clientes/1 - Buscando cliente por ID
-2025-12-01 22:16:11.939 [http-nio-8080-exec-3] INFO  c.t.b.controller.ClienteController - ✅ Cliente encontrado: ID=1, Nombre=Juan Pérez García, DNI=12345678
-2025-12-01 22:16:17.590 [http-nio-8080-exec-4] INFO  c.t.b.controller.ClienteController - ✏️  PUT /api/clientes/1 - Actualizando cliente
-2025-12-01 22:16:17.596 [http-nio-8080-exec-4] INFO  c.t.b.controller.ClienteController - 📝 Datos anteriores: Nombre=Juan Pérez García, DNI=12345678, Email=juan.perez@gmail.com
-2025-12-01 22:16:17.694 [http-nio-8080-exec-4] INFO  c.t.b.controller.ClienteController - ✅ Cliente actualizado - ID: 1, Nombre: Juan Pérez García → Juan Pérez García, DNI: 12345679, Email: juan.perez@gmail.com
-2025-12-01 22:16:17.707 [http-nio-8080-exec-6] INFO  c.t.b.controller.ClienteController - 📋 GET /api/clientes - Solicitando lista de todos los clientes
-2025-12-01 22:16:17.714 [http-nio-8080-exec-6] INFO  c.t.b.controller.ClienteController - ✅ Se obtuvieron 10 clientes exitosamente
+2025-12-03 11:23:23.611 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 8712 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
+2025-12-03 11:23:23.623 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-03 11:23:35.181 [restartedMain] INFO  c.t.backend.BackendApplication - Started BackendApplication in 12.971 seconds (process running for 13.993)
+2025-12-03 11:23:35.207 [restartedMain] INFO  c.t.backend.BackendApplication - ╔═══════════════════════════════════════════════════════════════╗
+2025-12-03 11:23:35.208 [restartedMain] INFO  c.t.backend.BackendApplication - ║         ✅ APLICACIÓN TECHSOLUTIONS INICIADA                 ║
+2025-12-03 11:23:35.210 [restartedMain] INFO  c.t.backend.BackendApplication - ║         📅 Fecha: 2025-12-03T11:23:35.209972200      ║
+2025-12-03 11:23:35.211 [restartedMain] INFO  c.t.backend.BackendApplication - ╚═══════════════════════════════════════════════════════════════╝
+2025-12-03 11:24:02.884 [http-nio-8080-exec-3] INFO  c.t.b.c.InventarioController - 📦 GET /api/inventario - Solicitando lista completa de inventario
+2025-12-03 11:24:02.928 [http-nio-8080-exec-3] INFO  c.t.b.c.InventarioController - ✅ Se obtuvieron 32 items de inventario - Total unidades: 430
+2025-12-03 11:24:04.841 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ordenes-por-estado - Calculando distribución de órdenes
+2025-12-03 11:24:04.843 [http-nio-8080-exec-10] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ventas-mensuales - Calculando ventas por mes
+2025-12-03 11:24:04.846 [http-nio-8080-exec-3] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/distribucion-clientes - Calculando distribución de clientes
+2025-12-03 11:24:04.848 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/inventario-categoria - Clasificando inventario por categoría
+2025-12-03 11:24:04.851 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/rendimiento-tecnicos - Calculando rendimiento de técnicos
+2025-12-03 11:24:04.851 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/tendencia-servicios - Calculando tendencia de servicios
+2025-12-03 11:24:04.891 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - ✅ Inventario clasificado - Total unidades: 430, Laptops: 0, PCs: 5, Periféricos: 138, Componentes: 111, Accesorios: 176
+2025-12-03 11:24:04.908 [http-nio-8080-exec-3] INFO  c.t.b.c.EstadisticasController - ✅ Distribución calculada - Total clientes: 10, Corporativos: 40%, PYMES: 30%, Particulares: 20%, Gobierno: 10%
+2025-12-03 11:24:05.008 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - ✅ Distribución de órdenes - Pendientes: 2, En Progreso: 4, Completadas: 3, Canceladas: 0
+2025-12-03 11:24:05.022 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - ✅ Tendencia calculada - Reparaciones: 0, Mantenimientos: 0
+2025-12-03 11:24:05.033 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - ✅ Rendimiento calculado - Técnico A: 91,2%, Técnico B: 89,2%, Órdenes completadas: 3
+2025-12-03 11:24:05.033 [http-nio-8080-exec-10] INFO  c.t.b.c.EstadisticasController - ✅ Ventas mensuales calculadas - Total: S/. 40870,64, Promedio: S/. 4541,18
+2025-12-03 11:24:15.460 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ordenes-por-estado - Calculando distribución de órdenes
+2025-12-03 11:24:15.490 [http-nio-8080-exec-10] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/distribucion-clientes - Calculando distribución de clientes
+2025-12-03 11:24:15.495 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/tendencia-servicios - Calculando tendencia de servicios
+2025-12-03 11:24:15.498 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ventas-mensuales - Calculando ventas por mes
+2025-12-03 11:24:15.500 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/inventario-categoria - Clasificando inventario por categoría
+2025-12-03 11:24:15.505 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/rendimiento-tecnicos - Calculando rendimiento de técnicos
+2025-12-03 11:24:15.538 [http-nio-8080-exec-10] INFO  c.t.b.c.EstadisticasController - ✅ Distribución calculada - Total clientes: 10, Corporativos: 40%, PYMES: 30%, Particulares: 20%, Gobierno: 10%
+2025-12-03 11:24:15.550 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - ✅ Inventario clasificado - Total unidades: 430, Laptops: 0, PCs: 5, Periféricos: 138, Componentes: 111, Accesorios: 176
+2025-12-03 11:24:15.662 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - ✅ Distribución de órdenes - Pendientes: 2, En Progreso: 4, Completadas: 3, Canceladas: 0
+2025-12-03 11:24:15.770 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - ✅ Rendimiento calculado - Técnico A: 90,0%, Técnico B: 90,4%, Órdenes completadas: 3
+2025-12-03 11:24:15.775 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - ✅ Ventas mensuales calculadas - Total: S/. 46453,46, Promedio: S/. 5161,50
+2025-12-03 11:24:15.867 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - ✅ Tendencia calculada - Reparaciones: 0, Mantenimientos: 0
+2025-12-03 11:24:27.272 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/tendencia-servicios - Calculando tendencia de servicios
+2025-12-03 11:24:27.273 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ventas-mensuales - Calculando ventas por mes
+2025-12-03 11:24:27.274 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ordenes-por-estado - Calculando distribución de órdenes
+2025-12-03 11:24:27.276 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/distribucion-clientes - Calculando distribución de clientes
+2025-12-03 11:24:27.277 [http-nio-8080-exec-6] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/inventario-categoria - Clasificando inventario por categoría
+2025-12-03 11:24:27.282 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/rendimiento-tecnicos - Calculando rendimiento de técnicos
+2025-12-03 11:24:27.337 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - ✅ Distribución calculada - Total clientes: 10, Corporativos: 40%, PYMES: 30%, Particulares: 20%, Gobierno: 10%
+2025-12-03 11:24:27.353 [http-nio-8080-exec-6] INFO  c.t.b.c.EstadisticasController - ✅ Inventario clasificado - Total unidades: 430, Laptops: 0, PCs: 5, Periféricos: 138, Componentes: 111, Accesorios: 176
+2025-12-03 11:24:27.468 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - ✅ Ventas mensuales calculadas - Total: S/. 41892,97, Promedio: S/. 4654,77
+2025-12-03 11:24:27.480 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - ✅ Rendimiento calculado - Técnico A: 91,8%, Técnico B: 88,8%, Órdenes completadas: 3
+2025-12-03 11:24:27.490 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - ✅ Distribución de órdenes - Pendientes: 2, En Progreso: 4, Completadas: 3, Canceladas: 0
+2025-12-03 11:24:27.502 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - ✅ Tendencia calculada - Reparaciones: 0, Mantenimientos: 0
+2025-12-03 11:25:26.710 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 8712 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
+2025-12-03 11:25:26.712 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-03 11:28:37.462 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 8712 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
+2025-12-03 11:28:37.467 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-03 11:28:40.204 [restartedMain] INFO  c.t.backend.BackendApplication - Started BackendApplication in 2.945 seconds (process running for 319.017)
+2025-12-03 11:28:40.219 [restartedMain] INFO  c.t.backend.BackendApplication - ╔═══════════════════════════════════════════════════════════════╗
+2025-12-03 11:28:40.220 [restartedMain] INFO  c.t.backend.BackendApplication - ║         ✅ APLICACIÓN TECHSOLUTIONS INICIADA                 ║
+2025-12-03 11:28:40.224 [restartedMain] INFO  c.t.backend.BackendApplication - ║         📅 Fecha: 2025-12-03T11:28:40.220473900      ║
+2025-12-03 11:28:40.225 [restartedMain] INFO  c.t.backend.BackendApplication - ╚═══════════════════════════════════════════════════════════════╝
+2025-12-03 11:28:43.332 [http-nio-8080-exec-6] INFO  c.t.b.controller.ClienteController - 📋 GET /api/clientes - Solicitando lista de todos los clientes
+2025-12-03 11:28:43.392 [http-nio-8080-exec-6] INFO  c.t.b.controller.ClienteController - ✅ Se obtuvieron 10 clientes exitosamente
+2025-12-03 11:28:44.972 [http-nio-8080-exec-10] INFO  c.t.b.c.InventarioController - 📦 GET /api/inventario - Solicitando lista completa de inventario
+2025-12-03 11:28:44.993 [http-nio-8080-exec-10] INFO  c.t.b.c.InventarioController - ✅ Se obtuvieron 32 items de inventario - Total unidades: 430
+2025-12-03 11:28:47.504 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ventas-mensuales - Calculando ventas por mes
+2025-12-03 11:28:47.518 [http-nio-8080-exec-6] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/distribucion-clientes - Calculando distribución de clientes
+2025-12-03 11:28:47.518 [http-nio-8080-exec-3] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ordenes-por-estado - Calculando distribución de órdenes
+2025-12-03 11:28:47.518 [http-nio-8080-exec-5] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/tendencia-servicios - Calculando tendencia de servicios
+2025-12-03 11:28:47.518 [http-nio-8080-exec-8] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/inventario-categoria - Clasificando inventario por categoría
+2025-12-03 11:28:47.518 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/rendimiento-tecnicos - Calculando rendimiento de técnicos
+2025-12-03 11:28:47.572 [http-nio-8080-exec-6] INFO  c.t.b.c.EstadisticasController - ✅ Distribución calculada - Total clientes: 10, Corporativos: 40%, PYMES: 30%, Particulares: 20%, Gobierno: 10%
+2025-12-03 11:28:47.586 [http-nio-8080-exec-8] INFO  c.t.b.c.EstadisticasController - ✅ Inventario clasificado - Total unidades: 430, Laptops: 0, PCs: 5, Periféricos: 138, Componentes: 111, Accesorios: 176
+2025-12-03 11:28:47.637 [http-nio-8080-exec-3] INFO  c.t.b.c.EstadisticasController - ✅ Distribución de órdenes - Pendientes: 2, En Progreso: 4, Completadas: 3, Canceladas: 0
+2025-12-03 11:28:47.637 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - ✅ Ventas mensuales calculadas - Total: S/. 39251,82, Promedio: S/. 4361,31
+2025-12-03 11:28:47.638 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - ✅ Rendimiento calculado - Técnico A: 91,2%, Técnico B: 90,4%, Órdenes completadas: 3
+2025-12-03 11:28:47.647 [http-nio-8080-exec-5] INFO  c.t.b.c.EstadisticasController - ✅ Tendencia calculada - Reparaciones: 0, Mantenimientos: 0
+2025-12-03 11:28:49.303 [http-nio-8080-exec-8] INFO  c.t.b.controller.ClienteController - 📋 GET /api/clientes - Solicitando lista de todos los clientes
+2025-12-03 11:28:49.317 [http-nio-8080-exec-8] INFO  c.t.b.controller.ClienteController - ✅ Se obtuvieron 10 clientes exitosamente
+2025-12-03 11:28:50.413 [http-nio-8080-exec-8] INFO  c.t.b.c.InventarioController - 📦 GET /api/inventario - Solicitando lista completa de inventario
+2025-12-03 11:28:50.433 [http-nio-8080-exec-8] INFO  c.t.b.c.InventarioController - ✅ Se obtuvieron 32 items de inventario - Total unidades: 430

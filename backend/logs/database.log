@@ -1,16 +1,10 @@
-2025-12-01 22:09:22.805 [restartedMain] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:32.829 [restartedMain] DEBUG org.hibernate.SQL - 
     alter table clientes 
        modify column id bigint not null auto_increment
-2025-12-01 22:09:22.918 [restartedMain] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:32.913 [restartedMain] DEBUG org.hibernate.SQL - 
     alter table ordenes 
        modify column cliente_id bigint
-2025-12-01 22:15:23.159 [restartedMain] DEBUG org.hibernate.SQL - 
-    alter table clientes 
-       modify column id bigint not null auto_increment
-2025-12-01 22:15:23.244 [restartedMain] DEBUG org.hibernate.SQL - 
-    alter table ordenes 
-       modify column cliente_id bigint
-2025-12-01 22:15:47.203 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:58.928 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         o1_0.id,
         o1_0.cliente_id,
@@ -20,7 +14,7 @@
         o1_0.resumen_pedido 
     from
         ordenes o1_0
-2025-12-01 22:15:47.267 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:58.995 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -33,7 +27,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:47.292 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:59.025 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -46,7 +40,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:47.296 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:59.028 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -59,7 +53,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:47.301 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:59.032 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -72,7 +66,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:47.307 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:59.039 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -85,7 +79,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:47.310 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:59.043 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -98,7 +92,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:47.313 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:59.051 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -111,7 +105,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:47.318 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:23:59.057 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -124,7 +118,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:49.660 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+2025-12-03 11:24:02.893 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         i1_0.id,
         i1_0.cantidad,
@@ -132,7 +126,48 @@
         i1_0.estado 
     from
         inventario i1_0
-2025-12-01 22:15:51.005 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2025-12-03 11:24:04.852 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:04.852 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:04.853 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        i1_0.id,
+        i1_0.cantidad,
+        i1_0.componente,
+        i1_0.estado 
+    from
+        inventario i1_0
+2025-12-03 11:24:04.863 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.874 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -143,7 +178,1525 @@
         c1_0.telefono 
     from
         clientes c1_0
-2025-12-01 22:15:52.481 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:24:04.895 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.901 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:04.901 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:04.907 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.912 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.913 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.913 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.915 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.916 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.922 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.929 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.939 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.940 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.945 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.949 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.953 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.958 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.962 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.964 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.965 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.965 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.967 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.971 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.972 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.972 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.980 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.980 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.984 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.989 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.989 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:04.997 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:05.003 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:05.010 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.479 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:15.490 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.498 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.506 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.510 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0
+2025-12-03 11:24:15.510 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.513 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:15.515 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        i1_0.id,
+        i1_0.cantidad,
+        i1_0.componente,
+        i1_0.estado 
+    from
+        inventario i1_0
+2025-12-03 11:24:15.515 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:15.523 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:15.530 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.531 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.532 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.537 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.541 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.561 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.561 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.561 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.574 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.579 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.589 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.595 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.615 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.618 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.621 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.622 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.637 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.647 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.656 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.664 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.666 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.676 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.676 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.675 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.735 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.745 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.757 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:15.773 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.287 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:27.287 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:27.292 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:27.294 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0
+2025-12-03 11:24:27.304 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.304 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.308 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        i1_0.id,
+        i1_0.cantidad,
+        i1_0.componente,
+        i1_0.estado 
+    from
+        inventario i1_0
+2025-12-03 11:24:27.309 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:24:27.310 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.318 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.326 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.334 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.339 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.340 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.347 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.354 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.362 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.368 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.368 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.370 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.373 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.373 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.384 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.387 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.389 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.397 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.398 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.400 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.408 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.414 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.423 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.429 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.440 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.442 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.453 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.453 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.465 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:24:27.465 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:25:28.955 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table clientes 
+       modify column id bigint not null auto_increment
+2025-12-03 11:25:28.970 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table ordenes 
+       modify column cliente_id bigint
+2025-12-03 11:28:39.457 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table clientes 
+       modify column id bigint not null auto_increment
+2025-12-03 11:28:39.469 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table ordenes 
+       modify column cliente_id bigint
+2025-12-03 11:28:43.352 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0
+2025-12-03 11:28:44.983 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        i1_0.id,
+        i1_0.cantidad,
+        i1_0.componente,
+        i1_0.estado 
+    from
+        inventario i1_0
+2025-12-03 11:28:45.709 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:28:45.719 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:45.733 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:45.737 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:45.745 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:45.748 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:45.750 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:45.753 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:45.757 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:46.669 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         s1_0.id,
         s1_0.descripcion,
@@ -153,7 +1706,7 @@
         s1_0.precio 
     from
         servicios s1_0
-2025-12-01 22:15:56.923 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.520 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         o1_0.id,
         o1_0.cliente_id,
@@ -163,7 +1716,7 @@
         o1_0.resumen_pedido 
     from
         ordenes o1_0
-2025-12-01 22:15:56.928 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.522 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         o1_0.id,
         o1_0.cliente_id,
@@ -173,30 +1726,7 @@
         o1_0.resumen_pedido 
     from
         ordenes o1_0
-2025-12-01 22:15:56.928 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
-    select
-        o1_0.id,
-        o1_0.cliente_id,
-        o1_0.estado,
-        o1_0.fecha_creacion,
-        o1_0.numero_orden,
-        o1_0.resumen_pedido 
-    from
-        ordenes o1_0
-2025-12-01 22:15:56.933 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
-    select
-        c1_0.id,
-        c1_0.dni,
-        c1_0.email,
-        c1_0.estado,
-        c1_0.fecha_registro,
-        c1_0.nombre,
-        c1_0.telefono 
-    from
-        clientes c1_0 
-    where
-        c1_0.id=?
-2025-12-01 22:15:56.937 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.522 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -207,33 +1737,7 @@
         c1_0.telefono 
     from
         clientes c1_0
-2025-12-01 22:15:56.938 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
-    select
-        c1_0.id,
-        c1_0.dni,
-        c1_0.email,
-        c1_0.estado,
-        c1_0.fecha_registro,
-        c1_0.nombre,
-        c1_0.telefono 
-    from
-        clientes c1_0 
-    where
-        c1_0.id=?
-2025-12-01 22:15:56.947 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
-    select
-        c1_0.id,
-        c1_0.dni,
-        c1_0.email,
-        c1_0.estado,
-        c1_0.fecha_registro,
-        c1_0.nombre,
-        c1_0.telefono 
-    from
-        clientes c1_0 
-    where
-        c1_0.id=?
-2025-12-01 22:15:56.948 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.539 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         o1_0.id,
         o1_0.cliente_id,
@@ -243,7 +1747,7 @@
         o1_0.resumen_pedido 
     from
         ordenes o1_0
-2025-12-01 22:15:56.949 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.539 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -256,7 +1760,30 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:56.952 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.539 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        o1_0.id,
+        o1_0.cliente_id,
+        o1_0.estado,
+        o1_0.fecha_creacion,
+        o1_0.numero_orden,
+        o1_0.resumen_pedido 
+    from
+        ordenes o1_0
+2025-12-03 11:28:47.552 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:47.553 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         i1_0.id,
         i1_0.cantidad,
@@ -264,7 +1791,7 @@
         i1_0.estado 
     from
         inventario i1_0
-2025-12-01 22:15:56.955 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.558 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -277,7 +1804,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:56.959 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.567 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -290,7 +1817,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:56.965 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.571 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -303,7 +1830,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:56.963 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.574 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -316,7 +1843,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:56.975 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.577 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -329,7 +1856,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:56.984 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.581 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -342,7 +1869,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:56.985 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.583 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -355,7 +1882,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:56.999 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.584 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -368,7 +1895,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.001 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.586 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -381,7 +1908,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.003 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.586 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -394,7 +1921,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.008 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.589 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -407,7 +1934,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.008 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.589 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -420,7 +1947,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.009 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.593 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -433,7 +1960,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.015 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.600 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -446,7 +1973,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.021 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.600 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -459,7 +1986,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.021 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.602 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -472,7 +1999,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.022 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.602 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -485,7 +2012,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.023 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.605 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -498,7 +2025,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.027 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.608 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -511,7 +2038,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.031 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.608 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -524,7 +2051,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.037 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.608 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -537,7 +2064,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.037 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.614 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -550,7 +2077,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.042 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.614 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -563,7 +2090,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.049 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.614 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -576,7 +2103,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.056 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.618 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -589,7 +2116,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.059 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.619 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -602,7 +2129,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.065 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.622 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -615,7 +2142,7 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:57.074 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.622 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -628,17 +2155,33 @@
         clientes c1_0 
     where
         c1_0.id=?
-2025-12-01 22:15:58.309 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:47.625 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
     select
-        s1_0.id,
-        s1_0.descripcion,
-        s1_0.estado,
-        s1_0.grupo,
-        s1_0.nombre,
-        s1_0.precio 
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
     from
-        servicios s1_0
-2025-12-01 22:16:00.259 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:47.635 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.dni,
+        c1_0.email,
+        c1_0.estado,
+        c1_0.fecha_registro,
+        c1_0.nombre,
+        c1_0.telefono 
+    from
+        clientes c1_0 
+    where
+        c1_0.id=?
+2025-12-03 11:28:49.309 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
         c1_0.id,
         c1_0.dni,
@@ -649,51 +2192,11 @@
         c1_0.telefono 
     from
         clientes c1_0
-2025-12-01 22:16:11.933 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+2025-12-03 11:28:50.425 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
     select
-        c1_0.id,
-        c1_0.dni,
-        c1_0.email,
-        c1_0.estado,
-        c1_0.fecha_registro,
-        c1_0.nombre,
-        c1_0.telefono 
+        i1_0.id,
+        i1_0.cantidad,
+        i1_0.componente,
+        i1_0.estado 
     from
-        clientes c1_0 
-    where
-        c1_0.id=?
-2025-12-01 22:16:17.592 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
-    select
-        c1_0.id,
-        c1_0.dni,
-        c1_0.email,
-        c1_0.estado,
-        c1_0.fecha_registro,
-        c1_0.nombre,
-        c1_0.telefono 
-    from
-        clientes c1_0 
-    where
-        c1_0.id=?
-2025-12-01 22:16:17.671 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
-    update
-        clientes 
-    set
-        dni=?,
-        email=?,
-        estado=?,
-        nombre=?,
-        telefono=? 
-    where
-        id=?
-2025-12-01 22:16:17.710 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
-    select
-        c1_0.id,
-        c1_0.dni,
-        c1_0.email,
-        c1_0.estado,
-        c1_0.fecha_registro,
-        c1_0.nombre,
-        c1_0.telefono 
-    from
-        clientes c1_0
+        inventario i1_0

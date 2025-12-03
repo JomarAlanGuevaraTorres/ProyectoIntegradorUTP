@@ -603,3 +603,949 @@ This generated password is for development use only. Your security configuration
 2025-12-01 22:17:44.094 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-12-01 22:17:44.103 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-12-01 22:17:44.126 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-03 11:23:23.470 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-12-03 11:23:23.611 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 8712 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
+2025-12-03 11:23:23.623 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-03 11:23:23.734 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-03 11:23:23.734 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-03 11:23:25.589 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-03 11:23:25.744 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 127 ms. Found 4 JPA repository interfaces.
+2025-12-03 11:23:27.336 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-03 11:23:27.371 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-03 11:23:27.377 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-03 11:23:27.378 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-12-03 11:23:27.518 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-03 11:23:27.519 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3782 ms
+2025-12-03 11:23:27.690 [restartedMain] DEBUG o.s.web.filter.CorsFilter - Filter 'corsFilter' configured for use
+2025-12-03 11:23:27.953 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-03 11:23:28.147 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-12-03 11:23:28.274 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-03 11:23:29.263 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-03 11:23:29.362 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-03 11:23:29.853 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5ae847e9
+2025-12-03 11:23:29.859 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-03 11:23:29.937 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-03 11:23:29.946 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-03 11:23:30.005 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-03 11:23:32.421 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-03 11:23:32.906 [restartedMain] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table clientes 
+       modify column id bigint not null auto_increment" via JDBC [Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes']
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table clientes 
+       modify column id bigint not null auto_increment" via JDBC [Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes']
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:334)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.techsolutions.backend.BackendApplication.main(BackendApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 40 common frames omitted
+2025-12-03 11:23:32.923 [restartedMain] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table ordenes 
+       modify column cliente_id bigint" via JDBC [Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1']
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table ordenes 
+       modify column cliente_id bigint" via JDBC [Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1']
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:334)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.techsolutions.backend.BackendApplication.main(BackendApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 40 common frames omitted
+2025-12-03 11:23:32.978 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03 11:23:33.974 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-03 11:23:34.029 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-12-03 11:23:34.169 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 32 mappings in 'requestMappingHandlerMapping'
+2025-12-03 11:23:34.337 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-12-03 11:23:34.377 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 12acfe60-d414-4eeb-ad80-5a2c4d496d47
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-03 11:23:34.398 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-03 11:23:34.766 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-12-03 11:23:34.879 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-12-03 11:23:35.082 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-03 11:23:35.114 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-03 11:23:35.167 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-03 11:23:35.181 [restartedMain] INFO  c.t.backend.BackendApplication - Started BackendApplication in 12.971 seconds (process running for 13.993)
+2025-12-03 11:23:35.207 [restartedMain] INFO  c.t.backend.BackendApplication - ╔═══════════════════════════════════════════════════════════════╗
+2025-12-03 11:23:35.208 [restartedMain] INFO  c.t.backend.BackendApplication - ║         ✅ APLICACIÓN TECHSOLUTIONS INICIADA                 ║
+2025-12-03 11:23:35.210 [restartedMain] INFO  c.t.backend.BackendApplication - ║         📅 Fecha: 2025-12-03T11:23:35.209972200      ║
+2025-12-03 11:23:35.211 [restartedMain] INFO  c.t.backend.BackendApplication - ╚═══════════════════════════════════════════════════════════════╝
+2025-12-03 11:23:48.422 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-03 11:23:48.424 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-03 11:23:48.424 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-12-03 11:23:48.426 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-12-03 11:23:48.427 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-12-03 11:23:48.429 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@193c9efd
+2025-12-03 11:23:48.430 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@3ec06585
+2025-12-03 11:23:48.432 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-12-03 11:23:48.434 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2025-12-03 11:23:48.554 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/", parameters={}
+2025-12-03 11:23:48.609 [http-nio-8080-exec-1] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-12-03 11:23:48.611 [http-nio-8080-exec-1] DEBUG o.s.w.s.view.InternalResourceView - View name [forward:], model {}
+2025-12-03 11:23:48.619 [http-nio-8080-exec-1] DEBUG o.s.w.s.view.InternalResourceView - Forwarding to [index.html]
+2025-12-03 11:23:48.641 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - "FORWARD" dispatch for GET "/index.html", parameters={}
+2025-12-03 11:23:48.645 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:48.683 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "FORWARD" dispatch, status 200
+2025-12-03 11:23:48.695 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:48.762 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/index.css", parameters={}
+2025-12-03 11:23:48.763 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/index.js", parameters={}
+2025-12-03 11:23:48.764 [http-nio-8080-exec-2] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:48.766 [http-nio-8080-exec-3] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:48.775 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:48.775 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:49.928 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/favicon.ico", parameters={}
+2025-12-03 11:23:49.932 [http-nio-8080-exec-4] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:49.936 [http-nio-8080-exec-4] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-12-03 11:23:49.947 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-12-03 11:23:49.948 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-12-03 11:23:49.961 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for GET "/error", parameters={}
+2025-12-03 11:23:49.964 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-12-03 11:23:50.097 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2025-12-03 11:23:50.111 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Wed Dec 03 11:23:50 COT 2025, status=404, error=Not Found, trace=org.springframework.web. (truncated)...]
+2025-12-03 11:23:50.306 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 404
+2025-12-03 11:23:50.783 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/pages/servicios.html", parameters={}
+2025-12-03 11:23:50.789 [http-nio-8080-exec-5] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:50.804 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:50.883 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/servicios.css", parameters={}
+2025-12-03 11:23:50.884 [http-nio-8080-exec-6] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:50.894 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/servicios.js", parameters={}
+2025-12-03 11:23:50.899 [http-nio-8080-exec-7] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:50.902 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:50.927 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:51.976 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/pages/acceder.html", parameters={}
+2025-12-03 11:23:51.981 [http-nio-8080-exec-8] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:52.039 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:52.086 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/acceder.css", parameters={}
+2025-12-03 11:23:52.088 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:52.101 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:52.114 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/acceder.js", parameters={}
+2025-12-03 11:23:52.115 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:52.131 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:53.452 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/admin.html", parameters={}
+2025-12-03 11:23:53.454 [http-nio-8080-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:53.463 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:53.516 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/admin.css", parameters={}
+2025-12-03 11:23:53.517 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:53.523 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:53.529 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/admin.js", parameters={}
+2025-12-03 11:23:53.534 [http-nio-8080-exec-3] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:53.541 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:58.373 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_ordenes.html", parameters={}
+2025-12-03 11:23:58.375 [http-nio-8080-exec-5] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:58.390 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:58.455 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:23:58.455 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard.js", parameters={}
+2025-12-03 11:23:58.457 [http-nio-8080-exec-6] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:58.458 [http-nio-8080-exec-7] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:23:58.473 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:58.473 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:23:58.638 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/ordenes", parameters={}
+2025-12-03 11:23:58.640 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.OrdenController#obtenerTodas()
+2025-12-03 11:23:59.073 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:23:59.079 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Orden(id=1, numeroOrden=ORD-001, cliente=Cliente(id=1, nombre=Juan Pérez García, dni=12345679, emai (truncated)...]
+2025-12-03 11:23:59.125 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:02.746 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_inventario.html", parameters={}
+2025-12-03 11:24:02.747 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:24:02.773 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:02.831 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:24:02.832 [http-nio-8080-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:24:02.839 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:02.845 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard.js", parameters={}
+2025-12-03 11:24:02.848 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:24:02.859 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:02.875 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/inventario", parameters={}
+2025-12-03 11:24:02.882 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.InventarioController#obtenerTodos()
+2025-12-03 11:24:02.884 [http-nio-8080-exec-3] INFO  c.t.b.c.InventarioController - 📦 GET /api/inventario - Solicitando lista completa de inventario
+2025-12-03 11:24:02.928 [http-nio-8080-exec-3] INFO  c.t.b.c.InventarioController - ✅ Se obtuvieron 32 items de inventario - Total unidades: 430
+2025-12-03 11:24:02.930 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:02.933 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Inventario(id=1, componente=Teclado USB Logitech, cantidad=15, estado=REGULAR), Inventario(id=2, co (truncated)...]
+2025-12-03 11:24:02.940 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:04.500 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_estadisticas.html", parameters={}
+2025-12-03 11:24:04.501 [http-nio-8080-exec-5] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:24:04.509 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:04.563 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:24:04.564 [http-nio-8080-exec-6] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:24:04.573 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:04.579 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/estadisticas.css", parameters={}
+2025-12-03 11:24:04.579 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/estadisticas.js", parameters={}
+2025-12-03 11:24:04.579 [http-nio-8080-exec-7] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:24:04.581 [http-nio-8080-exec-8] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:24:04.588 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:04.590 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:04.822 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/ventas-mensuales", parameters={}
+2025-12-03 11:24:04.822 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/ordenes-por-estado", parameters={}
+2025-12-03 11:24:04.824 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerVentasMensuales()
+2025-12-03 11:24:04.825 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerOrdenesPorEstado()
+2025-12-03 11:24:04.839 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/distribucion-clientes", parameters={}
+2025-12-03 11:24:04.839 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/inventario-categoria", parameters={}
+2025-12-03 11:24:04.840 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerDistribucionClientes()
+2025-12-03 11:24:04.840 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerInventarioPorCategoria()
+2025-12-03 11:24:04.841 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ordenes-por-estado - Calculando distribución de órdenes
+2025-12-03 11:24:04.841 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/tendencia-servicios", parameters={}
+2025-12-03 11:24:04.843 [http-nio-8080-exec-10] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ventas-mensuales - Calculando ventas por mes
+2025-12-03 11:24:04.845 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/rendimiento-tecnicos", parameters={}
+2025-12-03 11:24:04.846 [http-nio-8080-exec-3] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/distribucion-clientes - Calculando distribución de clientes
+2025-12-03 11:24:04.848 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/inventario-categoria - Clasificando inventario por categoría
+2025-12-03 11:24:04.849 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerTendenciaServicios()
+2025-12-03 11:24:04.850 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerRendimientoTecnicos()
+2025-12-03 11:24:04.851 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/rendimiento-tecnicos - Calculando rendimiento de técnicos
+2025-12-03 11:24:04.851 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/tendencia-servicios - Calculando tendencia de servicios
+2025-12-03 11:24:04.891 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - ✅ Inventario clasificado - Total unidades: 430, Laptops: 0, PCs: 5, Periféricos: 138, Componentes: 111, Accesorios: 176
+2025-12-03 11:24:04.908 [http-nio-8080-exec-3] INFO  c.t.b.c.EstadisticasController - ✅ Distribución calculada - Total clientes: 10, Corporativos: 40%, PYMES: 30%, Particulares: 20%, Gobierno: 10%
+2025-12-03 11:24:04.909 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:04.914 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:04.915 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PCs=5, Periféricos=138, Laptops=0, Componentes=111, Accesorios=176}]
+2025-12-03 11:24:04.915 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PYMES=3, Gobierno=1, Corporativos=4, Particulares=2}]
+2025-12-03 11:24:04.921 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:04.925 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:05.008 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - ✅ Distribución de órdenes - Pendientes: 2, En Progreso: 4, Completadas: 3, Canceladas: 0
+2025-12-03 11:24:05.011 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:05.012 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PENDIENTE=2, CANCELADO=0, COMPLETADO=3, EN_PROGRESO=4}]
+2025-12-03 11:24:05.015 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:05.022 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - ✅ Tendencia calculada - Reparaciones: 0, Mantenimientos: 0
+2025-12-03 11:24:05.025 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:05.029 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{mantenimientos=[0, 0, 0, 0, 0, 0, 0, 0, 0], reparaciones=[0, 0, 0, 0, 0, 0, 0, 0, 0], meses=[Ene, F (truncated)...]
+2025-12-03 11:24:05.033 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - ✅ Rendimiento calculado - Técnico A: 91,2%, Técnico B: 89,2%, Órdenes completadas: 3
+2025-12-03 11:24:05.033 [http-nio-8080-exec-10] INFO  c.t.b.c.EstadisticasController - ✅ Ventas mensuales calculadas - Total: S/. 40870,64, Promedio: S/. 4541,18
+2025-12-03 11:24:05.037 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:05.041 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:05.043 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{tecnicoA=[88, 94, 91, 92, 91], tecnicoB=[82, 91, 93, 88, 92], categorias=[Velocidad, Calidad, Satis (truncated)...]
+2025-12-03 11:24:05.046 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{meses=[Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep], ventas=[1351.9534650702847, 3855.348329880609, (truncated)...]
+2025-12-03 11:24:05.049 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:05.050 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:05.057 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:15.455 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/ordenes-por-estado", parameters={}
+2025-12-03 11:24:15.458 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerOrdenesPorEstado()
+2025-12-03 11:24:15.460 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ordenes-por-estado - Calculando distribución de órdenes
+2025-12-03 11:24:15.464 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/distribucion-clientes", parameters={}
+2025-12-03 11:24:15.467 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/tendencia-servicios", parameters={}
+2025-12-03 11:24:15.469 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/ventas-mensuales", parameters={}
+2025-12-03 11:24:15.474 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerDistribucionClientes()
+2025-12-03 11:24:15.475 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/inventario-categoria", parameters={}
+2025-12-03 11:24:15.470 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/rendimiento-tecnicos", parameters={}
+2025-12-03 11:24:15.477 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerTendenciaServicios()
+2025-12-03 11:24:15.480 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerVentasMensuales()
+2025-12-03 11:24:15.490 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerInventarioPorCategoria()
+2025-12-03 11:24:15.490 [http-nio-8080-exec-10] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/distribucion-clientes - Calculando distribución de clientes
+2025-12-03 11:24:15.493 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerRendimientoTecnicos()
+2025-12-03 11:24:15.495 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/tendencia-servicios - Calculando tendencia de servicios
+2025-12-03 11:24:15.498 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ventas-mensuales - Calculando ventas por mes
+2025-12-03 11:24:15.500 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/inventario-categoria - Clasificando inventario por categoría
+2025-12-03 11:24:15.505 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/rendimiento-tecnicos - Calculando rendimiento de técnicos
+2025-12-03 11:24:15.538 [http-nio-8080-exec-10] INFO  c.t.b.c.EstadisticasController - ✅ Distribución calculada - Total clientes: 10, Corporativos: 40%, PYMES: 30%, Particulares: 20%, Gobierno: 10%
+2025-12-03 11:24:15.550 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - ✅ Inventario clasificado - Total unidades: 430, Laptops: 0, PCs: 5, Periféricos: 138, Componentes: 111, Accesorios: 176
+2025-12-03 11:24:15.563 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:15.594 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:15.612 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PYMES=3, Gobierno=1, Corporativos=4, Particulares=2}]
+2025-12-03 11:24:15.623 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PCs=5, Periféricos=138, Laptops=0, Componentes=111, Accesorios=176}]
+2025-12-03 11:24:15.647 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:15.659 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:15.662 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - ✅ Distribución de órdenes - Pendientes: 2, En Progreso: 4, Completadas: 3, Canceladas: 0
+2025-12-03 11:24:15.670 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:15.673 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PENDIENTE=2, CANCELADO=0, COMPLETADO=3, EN_PROGRESO=4}]
+2025-12-03 11:24:15.677 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:15.770 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - ✅ Rendimiento calculado - Técnico A: 90,0%, Técnico B: 90,4%, Órdenes completadas: 3
+2025-12-03 11:24:15.774 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:15.775 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - ✅ Ventas mensuales calculadas - Total: S/. 46453,46, Promedio: S/. 5161,50
+2025-12-03 11:24:15.792 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{tecnicoA=[88, 91, 88, 94, 89], tecnicoB=[83, 91, 92, 91, 95], categorias=[Velocidad, Calidad, Satis (truncated)...]
+2025-12-03 11:24:15.818 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:15.823 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{meses=[Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep], ventas=[9500.749537880298, 2011.7563985563859, (truncated)...]
+2025-12-03 11:24:15.825 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:15.860 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:15.867 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - ✅ Tendencia calculada - Reparaciones: 0, Mantenimientos: 0
+2025-12-03 11:24:15.884 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:15.894 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{mantenimientos=[0, 0, 0, 0, 0, 0, 0, 0, 0], reparaciones=[0, 0, 0, 0, 0, 0, 0, 0, 0], meses=[Ene, F (truncated)...]
+2025-12-03 11:24:15.939 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:27.266 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/tendencia-servicios", parameters={}
+2025-12-03 11:24:27.266 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/ordenes-por-estado", parameters={}
+2025-12-03 11:24:27.266 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/ventas-mensuales", parameters={}
+2025-12-03 11:24:27.267 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/distribucion-clientes", parameters={}
+2025-12-03 11:24:27.268 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerTendenciaServicios()
+2025-12-03 11:24:27.272 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/inventario-categoria", parameters={}
+2025-12-03 11:24:27.269 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerVentasMensuales()
+2025-12-03 11:24:27.269 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerOrdenesPorEstado()
+2025-12-03 11:24:27.272 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/rendimiento-tecnicos", parameters={}
+2025-12-03 11:24:27.272 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/tendencia-servicios - Calculando tendencia de servicios
+2025-12-03 11:24:27.272 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerDistribucionClientes()
+2025-12-03 11:24:27.273 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerInventarioPorCategoria()
+2025-12-03 11:24:27.273 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ventas-mensuales - Calculando ventas por mes
+2025-12-03 11:24:27.274 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ordenes-por-estado - Calculando distribución de órdenes
+2025-12-03 11:24:27.274 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerRendimientoTecnicos()
+2025-12-03 11:24:27.276 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/distribucion-clientes - Calculando distribución de clientes
+2025-12-03 11:24:27.277 [http-nio-8080-exec-6] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/inventario-categoria - Clasificando inventario por categoría
+2025-12-03 11:24:27.282 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/rendimiento-tecnicos - Calculando rendimiento de técnicos
+2025-12-03 11:24:27.337 [http-nio-8080-exec-1] INFO  c.t.b.c.EstadisticasController - ✅ Distribución calculada - Total clientes: 10, Corporativos: 40%, PYMES: 30%, Particulares: 20%, Gobierno: 10%
+2025-12-03 11:24:27.353 [http-nio-8080-exec-6] INFO  c.t.b.c.EstadisticasController - ✅ Inventario clasificado - Total unidades: 430, Laptops: 0, PCs: 5, Periféricos: 138, Componentes: 111, Accesorios: 176
+2025-12-03 11:24:27.354 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:27.362 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:27.368 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PYMES=3, Gobierno=1, Corporativos=4, Particulares=2}]
+2025-12-03 11:24:27.382 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PCs=5, Periféricos=138, Laptops=0, Componentes=111, Accesorios=176}]
+2025-12-03 11:24:27.384 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:27.392 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:27.468 [http-nio-8080-exec-4] INFO  c.t.b.c.EstadisticasController - ✅ Ventas mensuales calculadas - Total: S/. 41892,97, Promedio: S/. 4654,77
+2025-12-03 11:24:27.480 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - ✅ Rendimiento calculado - Técnico A: 91,8%, Técnico B: 88,8%, Órdenes completadas: 3
+2025-12-03 11:24:27.490 [http-nio-8080-exec-9] INFO  c.t.b.c.EstadisticasController - ✅ Distribución de órdenes - Pendientes: 2, En Progreso: 4, Completadas: 3, Canceladas: 0
+2025-12-03 11:24:27.509 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:27.502 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - ✅ Tendencia calculada - Reparaciones: 0, Mantenimientos: 0
+2025-12-03 11:24:27.504 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:27.519 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:27.509 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:24:27.515 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{tecnicoA=[90, 94, 93, 93, 89], tecnicoB=[82, 87, 93, 90, 92], categorias=[Velocidad, Calidad, Satis (truncated)...]
+2025-12-03 11:24:27.520 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{meses=[Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep], ventas=[8699.02676830614, 2130.1552905361987,  (truncated)...]
+2025-12-03 11:24:27.538 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:27.566 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PENDIENTE=2, CANCELADO=0, COMPLETADO=3, EN_PROGRESO=4}]
+2025-12-03 11:24:27.524 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{mantenimientos=[0, 0, 0, 0, 0, 0, 0, 0, 0], reparaciones=[0, 0, 0, 0, 0, 0, 0, 0, 0], meses=[Ene, F (truncated)...]
+2025-12-03 11:24:27.530 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:27.575 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:24:27.576 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:25:25.521 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-03 11:25:25.650 [Thread-5] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-03 11:25:25.667 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-12-03 11:25:26.259 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-03 11:25:26.262 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-12-03 11:25:26.278 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03 11:25:26.300 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-03 11:25:26.415 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-03 11:25:26.710 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 8712 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
+2025-12-03 11:25:26.712 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-03 11:25:27.517 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-03 11:25:27.581 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
+2025-12-03 11:25:28.281 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-03 11:25:28.285 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-03 11:25:28.286 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-03 11:25:28.286 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-12-03 11:25:28.336 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-03 11:25:28.337 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1618 ms
+2025-12-03 11:25:28.363 [restartedMain] DEBUG o.s.web.filter.CorsFilter - Filter 'corsFilter' configured for use
+2025-12-03 11:25:28.464 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-03 11:25:28.473 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-03 11:25:28.523 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-03 11:25:28.529 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-12-03 11:25:28.542 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@40aba48e
+2025-12-03 11:25:28.543 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-12-03 11:25:28.546 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-03 11:25:28.547 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-03 11:25:28.550 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-03 11:25:28.839 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-03 11:25:28.962 [restartedMain] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table clientes 
+       modify column id bigint not null auto_increment" via JDBC [Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes']
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table clientes 
+       modify column id bigint not null auto_increment" via JDBC [Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes']
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:334)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.techsolutions.backend.BackendApplication.main(BackendApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 40 common frames omitted
+2025-12-03 11:25:28.984 [restartedMain] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table ordenes 
+       modify column cliente_id bigint" via JDBC [Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1']
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table ordenes 
+       modify column cliente_id bigint" via JDBC [Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1']
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:334)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.techsolutions.backend.BackendApplication.main(BackendApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 40 common frames omitted
+2025-12-03 11:25:29.001 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03 11:25:29.024 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'clienteController': Unsatisfied dependency expressed through field 'clienteService': Error creating bean with name 'clienteService' defined in file [C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes\com\techsolutions\backend\service\ClienteService.class]: Failed to instantiate [com.techsolutions.backend.service.ClienteService]: Constructor threw exception
+2025-12-03 11:25:29.024 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03 11:25:29.026 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-12-03 11:25:29.038 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-12-03 11:25:29.039 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-03 11:25:29.052 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-03 11:25:29.130 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'clienteController': Unsatisfied dependency expressed through field 'clienteService': Error creating bean with name 'clienteService' defined in file [C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes\com\techsolutions\backend\service\ClienteService.class]: Failed to instantiate [com.techsolutions.backend.service.ClienteService]: Constructor threw exception
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1221)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1187)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.techsolutions.backend.BackendApplication.main(BackendApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clienteService' defined in file [C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes\com\techsolutions\backend\service\ClienteService.class]: Failed to instantiate [com.techsolutions.backend.service.ClienteService]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1242)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1698)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1643)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.techsolutions.backend.service.ClienteService]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:223)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:123)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1351)
+	... 35 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token(s), misplaced construct(s)
+	The public type OrdenService must be defined in its own file
+	Syntax error on token(s), misplaced construct(s)
+	The public type ServicioService must be defined in its own file
+	The public type InventarioService must be defined in its own file
+
+	at com.techsolutions.backend.service.ClienteService.<init>(ClienteService.java:4)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:197)
+	... 37 common frames omitted
+2025-12-03 11:28:37.462 [restartedMain] INFO  c.t.backend.BackendApplication - Starting BackendApplication using Java 19.0.2 with PID 8712 (C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend\target\classes started by joaquin in C:\Users\joaquin\Desktop\CARRERA DE INGENIERIA DE SISTEMA\CICLO AGOSTO 2025\Curso integrador 1\Prototipo final\backend)
+2025-12-03 11:28:37.467 [restartedMain] INFO  c.t.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-03 11:28:38.311 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-03 11:28:38.364 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 4 JPA repository interfaces.
+2025-12-03 11:28:38.787 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-03 11:28:38.795 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-03 11:28:38.795 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-03 11:28:38.796 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-12-03 11:28:38.846 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-03 11:28:38.846 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1369 ms
+2025-12-03 11:28:38.878 [restartedMain] DEBUG o.s.web.filter.CorsFilter - Filter 'corsFilter' configured for use
+2025-12-03 11:28:38.973 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-03 11:28:38.980 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-03 11:28:39.019 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-03 11:28:39.026 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-12-03 11:28:39.067 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44becb76
+2025-12-03 11:28:39.068 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-12-03 11:28:39.072 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-03 11:28:39.073 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-12-03 11:28:39.074 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-03 11:28:39.337 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-03 11:28:39.466 [restartedMain] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table clientes 
+       modify column id bigint not null auto_increment" via JDBC [Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes']
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table clientes 
+       modify column id bigint not null auto_increment" via JDBC [Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes']
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:334)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.techsolutions.backend.BackendApplication.main(BackendApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: Cannot change column 'id': used in a foreign key constraint 'ordenes_ibfk_1' of table 'techsolutions.ordenes'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 40 common frames omitted
+2025-12-03 11:28:39.474 [restartedMain] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table ordenes 
+       modify column cliente_id bigint" via JDBC [Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1']
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table ordenes 
+       modify column cliente_id bigint" via JDBC [Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1']
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:334)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.techsolutions.backend.BackendApplication.main(BackendApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.sql.SQLException: Cannot change column 'cliente_id': used in a foreign key constraint 'ordenes_ibfk_1'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 40 common frames omitted
+2025-12-03 11:28:39.484 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03 11:28:39.773 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-03 11:28:39.792 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-12-03 11:28:39.859 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 32 mappings in 'requestMappingHandlerMapping'
+2025-12-03 11:28:39.939 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-12-03 11:28:39.957 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d20785c9-21f6-43d6-ab58-39e6d31e078a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-03 11:28:39.960 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-03 11:28:40.057 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-12-03 11:28:40.076 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-12-03 11:28:40.167 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-12-03 11:28:40.181 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-03 11:28:40.194 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-03 11:28:40.204 [restartedMain] INFO  c.t.backend.BackendApplication - Started BackendApplication in 2.945 seconds (process running for 319.017)
+2025-12-03 11:28:40.218 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-12-03 11:28:40.219 [restartedMain] INFO  c.t.backend.BackendApplication - ╔═══════════════════════════════════════════════════════════════╗
+2025-12-03 11:28:40.220 [restartedMain] INFO  c.t.backend.BackendApplication - ║         ✅ APLICACIÓN TECHSOLUTIONS INICIADA                 ║
+2025-12-03 11:28:40.224 [restartedMain] INFO  c.t.backend.BackendApplication - ║         📅 Fecha: 2025-12-03T11:28:40.220473900      ║
+2025-12-03 11:28:40.225 [restartedMain] INFO  c.t.backend.BackendApplication - ╚═══════════════════════════════════════════════════════════════╝
+2025-12-03 11:28:42.824 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-03 11:28:42.825 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-03 11:28:42.825 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-12-03 11:28:42.826 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-12-03 11:28:42.827 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-12-03 11:28:42.829 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7bcd94cc
+2025-12-03 11:28:42.831 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@608245e3
+2025-12-03 11:28:42.831 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-12-03 11:28:42.834 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2025-12-03 11:28:42.853 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_clientes.html", parameters={}
+2025-12-03 11:28:42.863 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:42.914 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:43.082 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:28:43.083 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/api-service.js", parameters={}
+2025-12-03 11:28:43.084 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard.js", parameters={}
+2025-12-03 11:28:43.085 [http-nio-8080-exec-2] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:43.086 [http-nio-8080-exec-3] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:43.086 [http-nio-8080-exec-4] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:43.105 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:43.107 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:43.117 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard-clientes.js", parameters={}
+2025-12-03 11:28:43.117 [http-nio-8080-exec-5] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:43.126 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:43.131 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:43.293 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/clientes", parameters={}
+2025-12-03 11:28:43.313 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.ClienteController#obtenerTodos()
+2025-12-03 11:28:43.332 [http-nio-8080-exec-6] INFO  c.t.b.controller.ClienteController - 📋 GET /api/clientes - Solicitando lista de todos los clientes
+2025-12-03 11:28:43.392 [http-nio-8080-exec-6] INFO  c.t.b.controller.ClienteController - ✅ Se obtuvieron 10 clientes exitosamente
+2025-12-03 11:28:43.402 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:43.445 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Cliente(id=1, nombre=Juan Pérez García, dni=12345679, email=juan.perez@gmail.com, telefono=98765432 (truncated)...]
+2025-12-03 11:28:43.483 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:44.843 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_inventario.html", parameters={}
+2025-12-03 11:28:44.845 [http-nio-8080-exec-8] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:44.853 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:44.919 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:28:44.921 [http-nio-8080-exec-7] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:44.932 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:44.933 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard.js", parameters={}
+2025-12-03 11:28:44.935 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:44.946 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:44.969 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/inventario", parameters={}
+2025-12-03 11:28:44.970 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.InventarioController#obtenerTodos()
+2025-12-03 11:28:44.972 [http-nio-8080-exec-10] INFO  c.t.b.c.InventarioController - 📦 GET /api/inventario - Solicitando lista completa de inventario
+2025-12-03 11:28:44.993 [http-nio-8080-exec-10] INFO  c.t.b.c.InventarioController - ✅ Se obtuvieron 32 items de inventario - Total unidades: 430
+2025-12-03 11:28:45.000 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:45.003 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Inventario(id=1, componente=Teclado USB Logitech, cantidad=15, estado=REGULAR), Inventario(id=2, co (truncated)...]
+2025-12-03 11:28:45.021 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:45.579 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_ordenes.html", parameters={}
+2025-12-03 11:28:45.580 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:45.587 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:45.645 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:28:45.647 [http-nio-8080-exec-4] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:45.657 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:45.663 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard.js", parameters={}
+2025-12-03 11:28:45.665 [http-nio-8080-exec-3] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:45.682 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:45.698 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/ordenes", parameters={}
+2025-12-03 11:28:45.702 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.OrdenController#obtenerTodas()
+2025-12-03 11:28:45.764 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:45.769 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Orden(id=1, numeroOrden=ORD-001, cliente=Cliente(id=1, nombre=Juan Pérez García, dni=12345679, emai (truncated)...]
+2025-12-03 11:28:45.780 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:46.513 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_servicios.html", parameters={}
+2025-12-03 11:28:46.516 [http-nio-8080-exec-5] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:46.522 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:46.584 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:28:46.584 [http-nio-8080-exec-6] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:46.590 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:46.596 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard.js", parameters={}
+2025-12-03 11:28:46.597 [http-nio-8080-exec-8] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:46.606 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:46.639 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/servicios", parameters={}
+2025-12-03 11:28:46.640 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.ServicioController#obtenerTodos()
+2025-12-03 11:28:46.692 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:46.694 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Servicio(id=1, grupo=Desarrollo, nombre=Desarrollo Web Personalizado, descripcion=Desarrollo de sit (truncated)...]
+2025-12-03 11:28:46.716 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.346 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_estadisticas.html", parameters={}
+2025-12-03 11:28:47.347 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:47.354 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.407 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:28:47.409 [http-nio-8080-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:47.418 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.424 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/estadisticas.js", parameters={}
+2025-12-03 11:28:47.424 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/estadisticas.css", parameters={}
+2025-12-03 11:28:47.427 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:47.433 [http-nio-8080-exec-4] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:47.441 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.442 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.499 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/ventas-mensuales", parameters={}
+2025-12-03 11:28:47.502 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerVentasMensuales()
+2025-12-03 11:28:47.502 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/tendencia-servicios", parameters={}
+2025-12-03 11:28:47.504 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/ordenes-por-estado", parameters={}
+2025-12-03 11:28:47.503 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/distribucion-clientes", parameters={}
+2025-12-03 11:28:47.504 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ventas-mensuales - Calculando ventas por mes
+2025-12-03 11:28:47.504 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/inventario-categoria", parameters={}
+2025-12-03 11:28:47.504 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/estadisticas/rendimiento-tecnicos", parameters={}
+2025-12-03 11:28:47.504 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerTendenciaServicios()
+2025-12-03 11:28:47.506 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerDistribucionClientes()
+2025-12-03 11:28:47.504 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerOrdenesPorEstado()
+2025-12-03 11:28:47.513 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerInventarioPorCategoria()
+2025-12-03 11:28:47.517 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.EstadisticasController#obtenerRendimientoTecnicos()
+2025-12-03 11:28:47.518 [http-nio-8080-exec-6] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/distribucion-clientes - Calculando distribución de clientes
+2025-12-03 11:28:47.518 [http-nio-8080-exec-3] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/ordenes-por-estado - Calculando distribución de órdenes
+2025-12-03 11:28:47.518 [http-nio-8080-exec-5] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/tendencia-servicios - Calculando tendencia de servicios
+2025-12-03 11:28:47.518 [http-nio-8080-exec-8] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/inventario-categoria - Clasificando inventario por categoría
+2025-12-03 11:28:47.518 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - 📊 GET /api/estadisticas/rendimiento-tecnicos - Calculando rendimiento de técnicos
+2025-12-03 11:28:47.572 [http-nio-8080-exec-6] INFO  c.t.b.c.EstadisticasController - ✅ Distribución calculada - Total clientes: 10, Corporativos: 40%, PYMES: 30%, Particulares: 20%, Gobierno: 10%
+2025-12-03 11:28:47.584 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:47.586 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PYMES=3, Gobierno=1, Corporativos=4, Particulares=2}]
+2025-12-03 11:28:47.586 [http-nio-8080-exec-8] INFO  c.t.b.c.EstadisticasController - ✅ Inventario clasificado - Total unidades: 430, Laptops: 0, PCs: 5, Periféricos: 138, Componentes: 111, Accesorios: 176
+2025-12-03 11:28:47.590 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.598 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:47.607 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PCs=5, Periféricos=138, Laptops=0, Componentes=111, Accesorios=176}]
+2025-12-03 11:28:47.612 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.637 [http-nio-8080-exec-3] INFO  c.t.b.c.EstadisticasController - ✅ Distribución de órdenes - Pendientes: 2, En Progreso: 4, Completadas: 3, Canceladas: 0
+2025-12-03 11:28:47.637 [http-nio-8080-exec-2] INFO  c.t.b.c.EstadisticasController - ✅ Ventas mensuales calculadas - Total: S/. 39251,82, Promedio: S/. 4361,31
+2025-12-03 11:28:47.638 [http-nio-8080-exec-7] INFO  c.t.b.c.EstadisticasController - ✅ Rendimiento calculado - Técnico A: 91,2%, Técnico B: 90,4%, Órdenes completadas: 3
+2025-12-03 11:28:47.638 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:47.638 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:47.639 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{PENDIENTE=2, CANCELADO=0, COMPLETADO=3, EN_PROGRESO=4}]
+2025-12-03 11:28:47.639 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:47.639 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{tecnicoA=[93, 91, 91, 92, 89], tecnicoB=[85, 89, 91, 93, 94], categorias=[Velocidad, Calidad, Satis (truncated)...]
+2025-12-03 11:28:47.639 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{meses=[Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep], ventas=[436.6155989195397, 2162.9870551041317, (truncated)...]
+2025-12-03 11:28:47.647 [http-nio-8080-exec-5] INFO  c.t.b.c.EstadisticasController - ✅ Tendencia calculada - Reparaciones: 0, Mantenimientos: 0
+2025-12-03 11:28:47.642 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.656 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.653 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:47.662 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{mantenimientos=[0, 0, 0, 0, 0, 0, 0, 0, 0], reparaciones=[0, 0, 0, 0, 0, 0, 0, 0, 0], meses=[Ene, F (truncated)...]
+2025-12-03 11:28:47.667 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:47.668 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:49.121 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_clientes.html", parameters={}
+2025-12-03 11:28:49.122 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:49.136 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:49.209 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/api-service.js", parameters={}
+2025-12-03 11:28:49.209 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard.js", parameters={}
+2025-12-03 11:28:49.210 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard-clientes.js", parameters={}
+2025-12-03 11:28:49.213 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:28:49.214 [http-nio-8080-exec-4] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:49.215 [http-nio-8080-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:49.214 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:49.215 [http-nio-8080-exec-6] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:49.225 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:49.233 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:49.247 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:49.253 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:49.296 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/clientes", parameters={}
+2025-12-03 11:28:49.301 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.ClienteController#obtenerTodos()
+2025-12-03 11:28:49.303 [http-nio-8080-exec-8] INFO  c.t.b.controller.ClienteController - 📋 GET /api/clientes - Solicitando lista de todos los clientes
+2025-12-03 11:28:49.317 [http-nio-8080-exec-8] INFO  c.t.b.controller.ClienteController - ✅ Se obtuvieron 10 clientes exitosamente
+2025-12-03 11:28:49.322 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:49.328 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Cliente(id=1, nombre=Juan Pérez García, dni=12345679, email=juan.perez@gmail.com, telefono=98765432 (truncated)...]
+2025-12-03 11:28:49.342 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:50.264 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/dashboard/dashboard_inventario.html", parameters={}
+2025-12-03 11:28:50.266 [http-nio-8080-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:50.272 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:50.353 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/css/dashboard.css", parameters={}
+2025-12-03 11:28:50.355 [http-nio-8080-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:50.361 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:50.371 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/js/dashboard.js", parameters={}
+2025-12-03 11:28:50.372 [http-nio-8080-exec-6] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-12-03 11:28:50.383 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:28:50.403 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/inventario", parameters={}
+2025-12-03 11:28:50.411 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.techsolutions.backend.controller.InventarioController#obtenerTodos()
+2025-12-03 11:28:50.413 [http-nio-8080-exec-8] INFO  c.t.b.c.InventarioController - 📦 GET /api/inventario - Solicitando lista completa de inventario
+2025-12-03 11:28:50.433 [http-nio-8080-exec-8] INFO  c.t.b.c.InventarioController - ✅ Se obtuvieron 32 items de inventario - Total unidades: 430
+2025-12-03 11:28:50.436 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 11:28:50.439 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Inventario(id=1, componente=Teclado USB Logitech, cantidad=15, estado=REGULAR), Inventario(id=2, co (truncated)...]
+2025-12-03 11:28:50.441 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 11:29:41.962 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-03 11:29:42.257 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-03 11:29:42.264 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-03 11:29:42.265 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-12-03 11:29:42.269 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
